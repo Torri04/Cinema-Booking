@@ -10,6 +10,10 @@ class AdminMemberHandle extends Controller
     //GET
     public function index()
     {
+        return view("admin/accountAdmin");
+    }
+    public function memberAdmin()
+    {
         return view("admin/memberAdmin");
     }
 }

@@ -58,15 +58,15 @@ use Carbon\Carbon;
         </div>
         <div class="schedule">
             <div class="dates">
-                <a href= "{{route('adminInfoEdit',["Name" => $movie[0]->Name,"Day" => "1stDay"])}}" class="datee">
+                <a href= "{{route('adminInfoEdit',["Name" => $movie[0]->Name,"Day" => "1stDay"])}}" class="{{Request::is('admin/infoEdit/*/1stDay') ? 'isOnShow' : ''}} datee">
                     <span class="day"><?php echo date("d")?></span>
                     <span class="month">/<?php echo date("m")?> - <?php echo date("D")?></span>
                 </a>
-                <a href= "{{route('adminInfoEdit',["Name" => $movie[0]->Name,"Day" => "2ndDay"])}}" class="datee">
+                <a href= "{{route('adminInfoEdit',["Name" => $movie[0]->Name,"Day" => "2ndDay"])}}" class="{{Request::is('admin/infoEdit/*/2ndDay') ? 'isOnShow' : ''}} datee">
                     <span class="day"><?php echo date("d", strtotime(' +1 day'))?></span>
                     <span class="month">/<?php echo date("m",strtotime(' +1 day'))?> - <?php echo date("D",strtotime(' +1 day'))?></span>
                 </a>
-                <a href= "{{route('adminInfoEdit',["Name" => $movie[0]->Name,"Day" => "3rdDay"])}}" class="datee">
+                <a href= "{{route('adminInfoEdit',["Name" => $movie[0]->Name,"Day" => "3rdDay"])}}" class="{{Request::is('admin/infoEdit/*/3rdDay') ? 'isOnShow' : ''}} datee">
                     <span class="day"><?php echo date("d",strtotime(' +2 day'))?></span>
                     <span class="month">/<?php echo date("m",strtotime(' +2 day'))?> - <?php echo date("D",strtotime(' +2 day'))?></span>
                 </a>
@@ -116,7 +116,6 @@ use Carbon\Carbon;
 @push("SCSS&JS")
 @vite(['resources/scss/info.scss'])
 <script src="{{url('js/watchTrailer.js')}}" type="text/javascript" async></script>
-<script src="{{url('js/clickShow.js')}}" type="text/javascript" async></script>
 <script src="{{url('js/insertIMGEdit.js')}}" type="text/javascript" async></script>
 <script src="{{url('js/clickAdd.js')}}" type="text/javascript" async></script>
 @endpush

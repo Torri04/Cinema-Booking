@@ -4,8 +4,8 @@ use Carbon\Carbon;
 @endphp
 @section("main-content")
 <section class="nav-bara">
-    <a href ="{{route('film',['Film' => 'coming'])}}" class="film-type">PHIM SẮP CHIẾU</a>
-    <a href ="{{route('film',['Film' => 'release'])}}" class="film-type">PHIM ĐANG CHIẾU</a>
+    <a href ="{{route('film',['Film' => 'coming'])}}" class="{{Request::is('film/coming') ? 'isFilm' : ''}} film-type">PHIM SẮP CHIẾU</a>
+    <a href ="{{route('film',['Film' => 'release'])}}" class="{{Request::is('film/release') ? 'isFilm' : ''}} film-type">PHIM ĐANG CHIẾU</a>
 </section>
 <section class="movies">
     <div class="mov-container">
@@ -50,5 +50,4 @@ use Carbon\Carbon;
 
 @push("SCSS&JS")
 @vite(['resources/scss/film.scss'])
-<script src="{{url('js/isOnFilm.js')}}" type="text/javascript" async></script>
 @endpush

@@ -1,0 +1,40 @@
+.member-ctn {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 100px);
+    background: #252525;
+    justify-content: center;
+    align-items: center;
+
+    .nav-info {
+        width: 85%;
+        height: 50px;
+        display: flex;
+        background: #252525;
+
+        .opt-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 50px;
+            background: inherit;
+            text-decoration: none;
+            color: white;
+            border-radius: 0 30px 0 0;
+            transition: 0.3s;
+            cursor: pointer;
+
+            &:hover {
+                background: var(--1st-color);
+            }
+        }
+    }
+
+    .mem-info {
+        width: 85%;
+        height: 80%;
+        background: #787878;
+    }
+}

@@ -47,6 +47,10 @@ body {
     border-bottom: 1px solid var(--1st-color);
 }
 
+.isMember {
+    background: var(--1st-color) !important;
+}
+
 input[type="checkbox"] {
     width: 17px;
     height: 17px;

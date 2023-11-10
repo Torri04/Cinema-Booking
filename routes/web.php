@@ -57,7 +57,8 @@ Route::prefix('admin')->middleware(CheckPermission::class)->group(function () {
 
     Route::get('/promotion', [AdminPromotionHandle::class,'index'])->name('adminPromotion');
 
-    Route::get('/member', [AdminMemberHandle::class,'index'])->name('adminMember');
+    Route::get('/user/account', [AdminMemberHandle::class,'index'])->name('adminAccount');
+    Route::get('/user/member', [AdminMemberHandle::class,'memberAdmin'])->name('adminMember');
 
     Route::get('/infoAdd/{Film}', [AdminInfoAdd::class,'index'])->name('adminInfoAdd');
     Route::post('/infoAdd/{Film}', [AdminInfoAdd::class,'addFilm']);
