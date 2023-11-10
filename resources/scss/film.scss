@@ -1,0 +1,193 @@
+.nav-bara {
+    width: 100%;
+    background: black;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+
+    .film-type {
+        text-decoration: none;
+        font-size: 20px;
+        cursor: pointer;
+        transition: 0.4s;
+        color: white;
+
+        &:hover {
+            color: var(--1st-color);
+            border-bottom: 1px solid var(--1st-color);
+        }
+
+    }
+}
+
+.movies {
+    width: 100%;
+    padding: 15px 0;
+    background: black;
+    display: flex;
+
+    .mov-container {
+        margin: auto;
+        width: 1050px;
+        display: flex;
+        gap: 50px;
+        padding: 15px 0;
+        flex-wrap: wrap;
+    }
+
+    .mov-edit {
+        text-decoration: none;
+        width: 225px;
+        height: 325px;
+        display: flex;
+        flex-direction: column;
+        opacity: 0.8;
+        border: 2px solid var(--1st-color);
+        border-radius: 5px;
+
+        .img {
+            overflow: hidden;
+            text-align: center;
+            margin: auto;
+
+            .image {
+
+                &:hover {
+                    transform: scale(1.25);
+                    transition: 0.4s;
+                }
+            }
+        }
+    }
+
+    .mov {
+        position: relative;
+        width: 225px;
+        height: 450px;
+
+        a {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            color: white;
+            text-decoration: none;
+            width: 100%;
+            height: 100%;
+
+            .img {
+                width: 225px;
+                height: 325px;
+                overflow: hidden;
+
+                .image {
+                    width: 100%;
+                    height: 100%;
+
+                    &:hover {
+                        transform: scale(1.05);
+                        transition: 0.4s;
+                    }
+                }
+            }
+
+            .title {
+                font-size: 18px;
+                font-weight: bolder;
+            }
+        }
+
+        .film-dele {
+            font-size: 20px;
+            top: -10px;
+            right: -10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--1st-color);
+            position: absolute;
+            cursor: pointer;
+            border: 1px solid var(--1st-color);
+            transition: 0.4s;
+            color: black;
+
+            &:hover {
+                background: var(--2st-color);
+                color: white;
+
+            }
+        }
+
+
+    }
+}
+
+.dele-contain {
+    width: 300px;
+    height: 100px;
+    display: none;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--1st-color);
+    position: fixed;
+    top: calc(50% - 50px);
+    right: calc(50% - 150px);
+    z-index: 10;
+    border: 1px solid var(--2st-color);
+    border-radius: 10px;
+
+    .title {
+        width: 95%;
+        color: white;
+        text-align: center;
+    }
+
+    .dele {
+        display: flex;
+        gap: 30px;
+
+        .dele-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 30px;
+            color: var(--2st-color);
+            background: var(--1st-color);
+            border: 1px solid var(--2st-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+                color: white;
+                background: var(--2st-color);
+            }
+        }
+
+        .cancel-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 30px;
+            color: white;
+            background: var(--2st-color);
+            border: 1px solid var(--2st-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+                color: var(--2st-color);
+                background: var(--1st-color);
+            }
+        }
+    }
+}

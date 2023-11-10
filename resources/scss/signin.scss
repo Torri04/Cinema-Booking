@@ -1,0 +1,116 @@
+body {
+    background-image: url(../img/signin.png);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+
+    .form {
+        padding: 10px 25px;
+        width: 500px;
+        height: 325px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        background: #252525;
+
+        .title {
+            font-size: 20px;
+            align-self: left;
+            justify-self: left;
+            color: white;
+            text-indent: 15px;
+            margin-bottom: 5px;
+            font-weight: bolder;
+
+        }
+
+        .ipt-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 10px;
+            border: 1.6px dashed #9747FF;
+
+            .ipt {
+                position: relative;
+                width: 100%;
+
+                .lab {
+                    position: absolute;
+                    top: 25%;
+                    left: 10px;
+                    color: #6D758F;
+                    pointer-events: none;
+                }
+
+                .input {
+                    width: 100%;
+                    height: 50px;
+                    text-indent: 2px;
+                    border-radius: 6px;
+                }
+            }
+        }
+
+        .sure {
+            display: flex;
+            margin: 15px auto 0;
+            width: 425px;
+            justify-content: space-between;
+
+            .remem {
+                display: flex;
+                gap: 5px;
+
+                .spn {
+                    color: white;
+                    font-size: 10px;
+                }
+            }
+
+            .forget {
+                font-style: italic;
+                color: white;
+                font-size: 10px;
+
+            }
+        }
+
+        .btn {
+            width: 230px;
+            height: 35px;
+            border: 2px var(--1st-color) solid;
+            border-radius: 5px;
+            margin: 20px auto;
+            color: white;
+            box-shadow: none;
+            font-weight: bolder;
+
+            &:hover {
+                color: var(--2st-color);
+                background: var(--1st-color);
+                transition: 0.2s;
+            }
+        }
+
+
+
+    }
+
+    .bottom {
+        .anc {
+            text-decoration: none;
+        }
+
+        margin: 0px auto;
+        width: 425px;
+        display: flex;
+        justify-content: space-between;
+        color: red;
+
+    }
+
+}
