@@ -50,6 +50,7 @@ Route::prefix('/')->middleware(CheckUser::class)->group(function () {
 //Admin router 
 Route::prefix('admin')->middleware(CheckPermission::class)->group(function () {
     Route::get('/', [AdminHomeHandle::class,'index'])->name('adminHome');
+    Route::delete('/', [AdminHomeHandle::class,'deleteFilm']);
 
     Route::get('/film/{Film}', [AdminFilmHandle::class,'index'])->name('adminFilm');
     Route::delete('/film/{Film}', [AdminFilmHandle::class,'deleteFilm']);

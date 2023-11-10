@@ -79,7 +79,7 @@ use Carbon\Carbon;
     <section class="movies">
       <div class="mov-container">
         @forelse($movies as $movie)
-        <div class="mov">
+        <div key={{$movie->MovieID}} class="mov">
           <a href="{{route('adminInfoEdit',["Name" => $movie->Name,"Day" => "1stDay"])}}">
             <div class="img"><img class="image" src="{{asset("storage/img/posters/".$movie->Poster)}}" alt=""></div>
             <div class="title">{{$movie->Name}}</div>
@@ -101,14 +101,27 @@ use Carbon\Carbon;
     <section class="promo">
       <div class="title">CHƯƠNG TRÌNH ƯU ĐÃI</div>
     </section>
+    <div class="overlay"></div>
+    <form action="" method="POST" class="dele-contain" >
+      @csrf
+      @method("DELETE")
+      <input name="mvID" id="mvID" hidden type="text">
+      <div class="title"></div>
+      <div class="dele">
+        <button class="dele-btn">Xóa</button>
+        <div onclick="clickCancel()" class="cancel-btn">Hủy bỏ</div>
+      </div>
+    </form>
     @php
     $json = json_encode($shows);
     echo "
     <script>var data = $json;</script>";
     @endphp
+    
 @endsection
 
 @push("SCSS&JS")
 @vite(['resources/scss/home.scss'])
 <script src="{{url('js/selectTime.js')}}" type="text/javascript" async></script>
+<script src="{{url('js/clickDelete.js')}}" type="text/javascript" async></script>
 @endpush

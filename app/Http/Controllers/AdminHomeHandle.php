@@ -19,4 +19,12 @@ class AdminHomeHandle extends Controller
 
         return view("admin/homeAdmin",compact("movies","shows"));
     }
+    public function deleteFilm(Request $request)
+    {
+        DB::table('Movie')
+        ->where('MovieID', $request->mvID)
+        ->update(['IsOnShow' => 0]);
+        
+        return redirect(route('adminHome'));
+    }
 }
