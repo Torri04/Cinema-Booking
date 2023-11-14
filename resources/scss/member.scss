@@ -14,6 +14,7 @@
         background: #252525;
 
         .opt-info {
+            font-weight: bold;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -36,5 +37,81 @@
         width: 85%;
         height: 80%;
         background: #787878;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .user-ava {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+
+            .avt-img {
+                margin-left: 50px;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+
+            .ava-btn {
+                font-size: 12px;
+                height: 25px;
+                font-weight: bold;
+                width: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: white;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &:hover {
+                    background: var(--1st-color);
+                    color: white;
+                }
+            }
+        }
+
+        .info-row {
+            margin-left: 50px;
+            display: flex;
+            gap: 20%;
+            width: 80%;
+
+            .ctn-info {
+                width: 40%;
+                display: flex;
+                flex-direction: column;
+
+                label {
+                    color: white;
+                    font-weight: bold;
+                    margin-left: 5px;
+                }
+
+                select {
+                    height: 35%;
+                    color: white;
+                    text-indent: 5px;
+                    width: 20%;
+                    background-color: inherit;
+                    border: 1px solid white;
+
+                    option {
+                        background: #787878;
+                    }
+                }
+
+                textarea,
+                input {
+                    color: white;
+                    text-indent: 5px;
+                    width: 100%;
+                    background-color: inherit;
+                    border: 1px solid white;
+                }
+            }
+        }
     }
 }

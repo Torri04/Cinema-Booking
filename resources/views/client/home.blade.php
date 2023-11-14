@@ -104,6 +104,10 @@ use Carbon\Carbon;
     @endphp
 @endsection
 
+@section("footer")
+
+@endsection
+
 @push("SCSS&JS")
 @vite(['resources/scss/home.scss'])
 <script src="{{url('js/selectTime.js')}}" type="text/javascript" async></script>

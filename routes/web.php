@@ -45,8 +45,6 @@ Route::prefix('/')->middleware(CheckUser::class)->group(function () {
 
 });
 
-
-
 //Admin router 
 Route::prefix('admin')->middleware(CheckPermission::class)->group(function () {
     Route::get('/', [AdminHomeHandle::class,'index'])->name('adminHome');
