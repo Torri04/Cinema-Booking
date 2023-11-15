@@ -45,7 +45,7 @@ use Carbon\Carbon;
          </select>
          <select class="slc selectpicker date" name="date" aria-label="Default select example">
            <option class="opt" selected>Ngày chiếu</option>
-           <option class="opt" value=@php             
+           <option class="opt" value=@php
            $date = Carbon::now();
            echo $date->format('Y-m-d'); @endphp>
            @php
@@ -53,14 +53,14 @@ use Carbon\Carbon;
             echo $date->format('d/m/Y');
            @endphp
            </option>
-           <option class="opt" value=@php             
+           <option class="opt" value=@php
            $date = Carbon::now()->addDay(1);
            echo $date->format('Y-m-d'); @endphp>
            @php
             $date = Carbon::now()->addDay(1);
             echo $date->format('d/m/Y');
            @endphp</option>
-           <option class="opt" value=@php             
+           <option class="opt" value=@php
            $date = Carbon::now()->addDay(2);
            echo $date->format('Y-m-d'); @endphp>
            @php
@@ -104,11 +104,56 @@ use Carbon\Carbon;
     @endphp
 @endsection
 
-@section("footer")
 
+@section("footer")
+<section class="footer">
+    <div class="main-content">
+        <div class="left-box">
+            <a class="head">CHĂM SÓC KHÁCH HÀNG</a>
+            <div class="content">
+                <div class="place">
+                    <span class="head-2">Địa chỉ:  </span>
+                    <span>UIT, Thủ Đức</span>
+                </div>
+                <div class="working-hours">
+                    <span class="head-2">Giờ làm việc:  </span>
+                    <span>8h00 - 22h00</span>
+                </div>
+                <div class="hotline">
+                    <span class="head-2">Hotline: </span>
+                    <span>1900 1234</span>
+                </div>
+                <div class="email">
+                    <span class="head-2">Email:  </span>
+                    <span>cskh@cinema.vn</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="center-box">
+            <a class="head">KẾT NỐI VỚI CHÚNG TÔI</a>
+            <div class="social">
+                <a href="#"><span class="fa fa-facebook"></span></a>
+                <a href="#"><span class="fa fa-youtube"></span></a>
+            </div>
+        </div>
+
+        <div class="right-box">
+            <div class="content">
+                <a>ĐIỀU KHOẢN CHUNG</a><br>
+                <a>CHÍNH SÁCH BẢO MẬT THÔNG TIN</a><br>
+                <a>CHÍNH SÁCH THANH TOÁN</a><br>
+                <a>CÂU HỎI THƯỜNG GẶP</a><br>
+                <a>HƯỚNG DẪN ĐẶT VÉ</a><br>
+                <a>TUYỂN DỤNG</a>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection
 
 @push("SCSS&JS")
 @vite(['resources/scss/home.scss'])
 <script src="{{url('js/selectTime.js')}}" type="text/javascript" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @endpush
