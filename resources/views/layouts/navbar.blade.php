@@ -19,15 +19,15 @@
             <div class="userBox remain" >
                 <a href="{{route("adminAccount")}}" class='sign-box' style="text-decoration: none; color: var(--1st-color);" >
                     <img class="avatar" width="100%" src="{{asset("img/avatar.jpg")}}" >
-                    <div>Admin</div>  
-               </a>             
+                    <div>Admin</div>
+               </a>
             </div>
             @elseif(Cookie::has('isUser'))
             <div class="userBox remain" >
                 <a href="{{route("member")}}" class='sign-box' style="text-decoration: none; color: var(--1st-color);" >
                     <img class="avatar" width="100%" src="{{asset("img/avatar.jpg")}}" >
-                    <div>User</div>  
-               </a>             
+                    <div>User</div>
+               </a>
             </div>
             @else
             <div class='remain sign-box'>

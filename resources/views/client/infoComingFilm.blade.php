@@ -45,7 +45,7 @@ use Carbon\Carbon;
         <label for="insertPoster" style="background: var(--2st-color); cursor: pointer" class="poster ins unable">
             <img class="imgs" src="{{asset('storage/img/posters/' . $movie[0]->Poster)}}">
             <input id="insertPoster" class="ins-ipt" name="insertPoster" type="file" accept="image/*" hidden>
-        </label> 
+        </label>
         <input id="trailer" name="trailer" type ="text" class="trail" value="{{$movie[0]->Link}}">
         <div onclick="watchTrailer()" class="trailer">
             <img class="cc" src="{{asset('img/icons/play.svg')}}">
