@@ -41,6 +41,23 @@
         flex-direction: column;
         gap: 15px;
 
+        .upd-btn {
+            color: white;
+            background: var(--1st-color);
+            padding: 5px;
+            width: 100px;
+            align-self: center;
+            cursor: pointer;
+            transition: 0.4s;
+            border-radius: 5px;
+            border: 1px solid var(--1st-color);
+
+            &:hover {
+                color: var(--1st-color);
+                background: var(--2st-color);
+            }
+        }
+
         .user-ava {
             margin-top: 20px;
             display: flex;
@@ -112,6 +129,7 @@
                     border: 1px solid white;
                 }
             }
+
         }
     }
 }

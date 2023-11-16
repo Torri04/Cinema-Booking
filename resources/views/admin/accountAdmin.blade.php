@@ -6,7 +6,7 @@
         <a href={{route("adminAccount")}} class="{{Request::is('admin/user/account') ? 'isMember' : ''}} opt-info">THÔNG TIN TÀI KHOẢN</a>
         <a href={{route("adminMember")}} class="{{Request::is('admin/user/member') ? 'isMember' : ''}} opt-info">THẺ THÀNH VIÊN</a>
     </div>
-    <div class="mem-info">
+    <form method="POST" action="" class="mem-info">
             <div class="user-ava">
                 <img src="{{asset("img/avatar.jpg")}}" class="avt-img">
                 <div>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="ctn-info">
                     <label for="birth">Ngày sinh</label>
-                    <input style="width: 50%" type="text" name="birth" id="birth">
+                    <input style="width: 50%" type="date" name="birth" id="birth">
                 </div>
             </div>
             <div class="info-row">
@@ -41,14 +41,15 @@
                 </div>
                 <div class="ctn-info">
                     <label for="sex">Giới tính</label>
-                    <select  name="sex" id="sex">
+                    <select style="width: 25%"  name="sex" id="sex">
                         <option value="no">Không</option>
                         <option value="nam">Nam</option>
                         <option value="nu">Nữ</option>
                     </select>
                 </div>
             </div>
-    </div>
+            <button class="upd-btn">Cập nhập</button>
+    </form>
 </section>
 @endsection
 
