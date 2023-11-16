@@ -46,6 +46,7 @@ use Carbon\Carbon;
 @endsection
 
 @section("footer")
+@include("layouts.footer")
 @endsection
 
 @push("SCSS&JS")

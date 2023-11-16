@@ -5,6 +5,7 @@
 @endsection
 
 @section("footer")
+@include("layouts.footer")
 @endsection
 
 @push("SCSS&JS")

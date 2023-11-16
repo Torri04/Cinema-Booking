@@ -120,6 +120,10 @@ use Carbon\Carbon;
     
 @endsection
 
+@section("footer")
+@include("layouts.footer")
+@endsection
+
 @push("SCSS&JS")
 @vite(['resources/scss/home.scss'])
 <script src="{{url('js/selectTime.js')}}" type="text/javascript" async></script>
