@@ -113,7 +113,7 @@ use Carbon\Carbon;
             <div class="content">
                 <div class="place">
                     <span class="head-2">Địa chỉ:  </span>
-                    <span>UIT, Thủ Đức</span>
+                    <span><a href="https://maps.app.goo.gl/ATitXXWATVfaifWB9" target="_blank">UIT, Thủ Đức</a></span>
                 </div>
                 <div class="working-hours">
                     <span class="head-2">Giờ làm việc:  </span>
@@ -121,11 +121,11 @@ use Carbon\Carbon;
                 </div>
                 <div class="hotline">
                     <span class="head-2">Hotline: </span>
-                    <span>1900 1234</span>
+                    <span><a href="tel:1900-1234">1900 1234</a></span>
                 </div>
                 <div class="email">
                     <span class="head-2">Email:  </span>
-                    <span>cskh@cinema.vn</span>
+                    <span><a href="mailto:cskh@cinema.vn">cskh@cinema.vn<a></span>
                 </div>
             </div>
         </div>
