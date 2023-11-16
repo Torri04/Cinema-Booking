@@ -33,7 +33,7 @@
             <div class='remain sign-box'>
                 <a style='text-decoration: none' href="{{route('signup')}}"><div class='signup-box'>Đăng ký</div></a>
                 <a style='text-decoration: none' href="{{route('signin')}}"><div class='signin-box'>Đăng nhập</div></a>
-            </div>"
+            </div>
             @endif
         </div>
     </header>

@@ -112,5 +112,4 @@ use Carbon\Carbon;
 @push("SCSS&JS")
 @vite(['resources/scss/home.scss'])
 <script src="{{url('js/selectTime.js')}}" type="text/javascript" async></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @endpush
