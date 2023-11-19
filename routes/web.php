@@ -41,7 +41,10 @@ Route::prefix('/')->middleware(CheckUser::class)->group(function () {
 
     Route::get('/promotion', [PromotionHandle::class, 'index'])->name('promotion');
 
-    Route::get('/member', [MemberHandle::class, 'index'])->name('member');
+    Route::get('/user/account', [MemberHandle::class, 'index'])->name('userAccount');
+    Route::post('/user/account', [MemberHandle::class, 'accountEdit']);
+
+    Route::get('/user/member', [MemberHandle::class, 'memberUser'])->name('userMember');
 
     Route::get('/info/{Name}/{Day}', [InfoHandle::class, 'index'])->name('info');
 
@@ -59,7 +62,7 @@ Route::prefix('admin')->middleware(CheckPermission::class)->group(function () {
     Route::get('/promotion', [AdminPromotionHandle::class, 'index'])->name('adminPromotion');
 
     Route::get('/user/account', [AdminMemberHandle::class, 'index'])->name('adminAccount');
-    Route::post('/user/account', [AdminMemberHandle::class, 'accountEdit'])->name('accountEdit');
+    Route::post('/user/account', [AdminMemberHandle::class, 'accountEdit']);
 
     Route::get('/user/member', [AdminMemberHandle::class, 'memberAdmin'])->name('adminMember');
 

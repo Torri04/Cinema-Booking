@@ -37,7 +37,7 @@ else if(Cookie::has('isUser'))
             </div>
             @elseif(Cookie::has('isUser'))
             <div class="userBox remain" >
-                <a href="{{route("member")}}" class='sign-box' style="text-decoration: none; color: var(--1st-color);" >
+                <a href="{{route("userAccount")}}" class='sign-box' style="text-decoration: none; color: var(--1st-color);" >
                     <img class="avatar" width="100%" src="{{$user->avatar?asset("storage/img/users/".$user->avatar):asset("storage/img/users/default.jpg")}}" >
                     <div>{{$user->user}}</div>
                </a>
