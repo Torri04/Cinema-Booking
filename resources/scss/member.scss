@@ -49,17 +49,16 @@
             gap: 20px;
 
             .edit-btn {
+                color: white;
                 padding: 7px 20px;
                 background: var(--1st-color);
-                border-radius: 5px;
-                border: 1px solid var(--1st-color);
+                border-radius: 7px;
+                border: 2px solid var(--1st-color);
                 transition: 0.2s;
                 cursor: pointer;
 
                 &:hover {
                     background: var(--2st-color);
-                    color: white;
-
                 }
             }
 
@@ -69,30 +68,28 @@
                 background: red;
                 color: white;
                 background: var(--2st-color);
-                border-radius: 5px;
-                border: 1px solid var(--1st-color);
+                border-radius: 7px;
+                border: 2px solid var(--1st-color);
                 transition: 0.2s;
                 display: none;
 
                 &:hover {
                     background: var(--1st-color);
-                    color: var(--2st-color);
-
                 }
             }
 
             .save {
+                color: white;
                 padding: 7px 15px;
                 background: var(--1st-color);
-                border-radius: 5px;
-                border: 1px solid var(--1st-color);
+                border-radius: 7px;
+                border: 2px solid var(--1st-color);
                 transition: 0.2s;
                 cursor: pointer;
                 display: none;
 
                 &:hover {
                     background: var(--2st-color);
-                    color: white;
 
                 }
             }

@@ -140,7 +140,7 @@
     top: calc(50% - 50px);
     right: calc(50% - 150px);
     z-index: 10;
-    border: 1px solid var(--2st-color);
+    border: 1px solid white;
     border-radius: 10px;
 
     .title {
@@ -162,7 +162,7 @@
             color: var(--2st-color);
             background: var(--1st-color);
             border: 1px solid var(--2st-color);
-            border-radius: 5px;
+            border-radius: 7px;
             cursor: pointer;
             transition: 0.2s;
 
@@ -181,7 +181,7 @@
             color: white;
             background: var(--2st-color);
             border: 1px solid var(--2st-color);
-            border-radius: 5px;
+            border-radius: 7px;
             cursor: pointer;
             transition: 0.2s;
 
