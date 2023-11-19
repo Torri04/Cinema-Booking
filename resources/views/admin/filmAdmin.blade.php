@@ -48,7 +48,6 @@ use Carbon\Carbon;
         <div class="img"><img class="image" src="{{asset("img/plus.png")}}" alt=""></div>
       </a>
   </section>
-  <div class="overlay"></div>
   <form action="" method="POST" class="dele-contain" >
     @csrf
     @method("DELETE")

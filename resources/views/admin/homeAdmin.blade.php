@@ -101,7 +101,6 @@ use Carbon\Carbon;
     <section class="promo">
       <div class="title">CHƯƠNG TRÌNH ƯU ĐÃI</div>
     </section>
-    <div class="overlay"></div>
     <form action="" method="POST" class="dele-contain" >
       @csrf
       @method("DELETE")

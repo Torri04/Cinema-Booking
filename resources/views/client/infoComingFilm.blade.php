@@ -57,7 +57,7 @@ use Carbon\Carbon;
     </div>
     </div>
 </form>
-<div onclick="closeClick()" class="overlay"></div>
+<div onclick="closeClick()" id="ovl" class="overlay"></div>
 <div class="frame">
     <iframe width="560" height="315" src="{{$movie[0]->Link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <span onclick="closeClick()" class="spn" class="spn">&times;</span>

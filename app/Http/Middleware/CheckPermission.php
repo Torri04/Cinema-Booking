@@ -16,7 +16,7 @@ class CheckPermission
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Cookie::has('isAdmin'))
+        if (Cookie::has('isAdmin'))
             return $next($request);
         else return abort(404);
     }

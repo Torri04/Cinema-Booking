@@ -41,20 +41,60 @@
         flex-direction: column;
         gap: 15px;
 
-        .upd-btn {
-            color: white;
-            background: var(--1st-color);
-            padding: 5px;
-            width: 100px;
-            align-self: center;
-            cursor: pointer;
-            transition: 0.4s;
-            border-radius: 5px;
-            border: 1px solid var(--1st-color);
+        .edit-row {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
 
-            &:hover {
-                color: var(--1st-color);
+            .edit-btn {
+                padding: 7px 20px;
+                background: var(--1st-color);
+                border-radius: 5px;
+                border: 1px solid var(--1st-color);
+                transition: 0.2s;
+                cursor: pointer;
+
+                &:hover {
+                    background: var(--2st-color);
+                    color: white;
+
+                }
+            }
+
+            .cancle {
+                text-decoration: none;
+                padding: 7px 20px;
+                background: red;
+                color: white;
                 background: var(--2st-color);
+                border-radius: 5px;
+                border: 1px solid var(--1st-color);
+                transition: 0.2s;
+                display: none;
+
+                &:hover {
+                    background: var(--1st-color);
+                    color: var(--2st-color);
+
+                }
+            }
+
+            .save {
+                padding: 7px 15px;
+                background: var(--1st-color);
+                border-radius: 5px;
+                border: 1px solid var(--1st-color);
+                transition: 0.2s;
+                cursor: pointer;
+                display: none;
+
+                &:hover {
+                    background: var(--2st-color);
+                    color: white;
+
+                }
             }
         }
 
@@ -76,7 +116,7 @@
                 height: 25px;
                 font-weight: bold;
                 width: 100px;
-                display: flex;
+                display: none;
                 align-items: center;
                 justify-content: center;
                 background: white;
@@ -100,6 +140,19 @@
                 width: 40%;
                 display: flex;
                 flex-direction: column;
+
+                .change-pass {
+                    text-decoration: none;
+                    color: #401958;
+                    font-weight: bold;
+                    margin-top: 10px;
+                    transition: 0.3s;
+
+                    &:hover {
+
+                        color: white;
+                    }
+                }
 
                 label {
                     color: white;

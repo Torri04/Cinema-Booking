@@ -1,4 +1,16 @@
 @extends('layouts.index')
+@php
+if(Cookie::has('isAdmin'))
+{
+    $user=Cookie::get('isAdmin');
+    $user=json_decode($user);
+}
+else if(Cookie::has('isUser'))
+{
+    $user=Cookie::get('isUser');
+    $user=json_decode($user);
+}
+@endphp
 @section("content")
 <section class="container-header">
     <header class="header">
@@ -18,16 +30,18 @@
             @if(Cookie::has('isAdmin'))
             <div class="userBox remain" >
                 <a href="{{route("adminAccount")}}" class='sign-box' style="text-decoration: none; color: var(--1st-color);" >
-                    <img class="avatar" width="100%" src="{{asset("img/avatar.jpg")}}" >
-                    <div>Admin</div>
+                    <img class="avatar" width="100%" src="{{$user->avatar?asset("storage/img/users/".$user->avatar):asset("storage/img/users/default.jpg")}}" >
+                    <div>{{$user->user}}</div>
                </a>
+               <i class="out-icon fa fa-sign-out" aria-hidden="true"></i>
             </div>
             @elseif(Cookie::has('isUser'))
             <div class="userBox remain" >
                 <a href="{{route("member")}}" class='sign-box' style="text-decoration: none; color: var(--1st-color);" >
-                    <img class="avatar" width="100%" src="{{asset("img/avatar.jpg")}}" >
-                    <div>User</div>
+                    <img class="avatar" width="100%" src="{{$user->avatar?asset("storage/img/users/".$user->avatar):asset("storage/img/users/default.jpg")}}" >
+                    <div>{{$user->user}}</div>
                </a>
+               <i class="out-icon fa fa-sign-out" aria-hidden="true"></i>
             </div>
             @else
             <div class='remain sign-box'>
@@ -40,7 +54,15 @@
     </section>
     @yield('main-content')
     @yield('footer')
+    <div class="signout-contain" >
+        <div class="title">Bạn có chắc muốn đăng xuất?</div>
+        <div class="sign-out">
+          <a href="{{route("signout")}}" class="signout-btn">Đăng xuất</a>
+          <div onclick="clickCancelSignout()" class="cancelSignout-btn">Hủy bỏ</div>
+        </div>
+    </div>
 @endsection
 @push("SCSS&JS")
 @vite(['resources/scss/navbar.scss'])
+<script src="{{url('js/clickSignout.js')}}" type="text/javascript" async></script>
 @endpush

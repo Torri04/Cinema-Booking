@@ -6,54 +6,63 @@
         <a href={{route("adminAccount")}} class="{{Request::is('admin/user/account') ? 'isMember' : ''}} opt-info">THÔNG TIN TÀI KHOẢN</a>
         <a href={{route("adminMember")}} class="{{Request::is('admin/user/member') ? 'isMember' : ''}} opt-info">THẺ THÀNH VIÊN</a>
     </div>
-    <form method="POST" action="" class="mem-info">
+    <form method="POST" action="" class="mem-info" enctype="multipart/form-data">
+        @csrf
+        @method("POST")
+            <input hidden id="userID" name="userID" type="text" value={{$user[0]->UserID}}>
             <div class="user-ava">
-                <img src="{{asset("img/avatar.jpg")}}" class="avt-img">
+                <img  src="{{$user[0]->Avatar?asset("storage/img/users/".$user[0]->Avatar):asset("storage/img/users/default.jpg")}}" class="avt-img">
                 <div>
                     <label for="insertAvt" class="ava-btn">TẢI ẢNH LÊN</label>
-                    <input hidden id="insertAvt" name="insertAvt" type="file" accept="image/*">
+                    <input class="unable" hidden id="insertAvt" name="insertAvt" type="file" accept="image/*">
                 </div>
             </div>
             <div class="info-row">
-                <div class="ctn-info">
+                <div class="ctn-info unable">
                     <label for="name">Họ tên</label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" value={{$user[0]->Name}}>
                 </div>
-                <div class="ctn-info">
+                <div class="ctn-info unable">
                     <label for="email">Email</label>
-                    <input type="text" name="email" id="email">
+                    <input type="text" name="email" id="email" value={{$user[0]->Email}}>
                 </div>
             </div>
             <div class="info-row">
-                <div class="ctn-info">
+                <div class="ctn-info unable">
                     <label for="tel">Số điện thoại</label>
-                    <input style="width: 50%" type="text" name="tel" id="tel">
+                    <input style="width: 50%" type="text" name="tel" id="tel" value={{$user[0]->Phone}}>
                 </div>
-                <div class="ctn-info">
+                <div class="ctn-info unable">
                     <label for="birth">Ngày sinh</label>
-                    <input style="width: 50%" type="date" name="birth" id="birth">
+                    <input style="width: 50%" type="date" name="birth" id="birth" value={{$user[0]->Birth}}>
                 </div>
             </div>
             <div class="info-row">
                 <div class="ctn-info">
                     <label for="address">Địa chỉ</label>
-                    <textarea name="address" id="address"></textarea>
+                    <textarea disabled name="address" id="address">{{$user[0]->Address}}</textarea>
                 </div>
                 <div class="ctn-info">
-                    <label for="sex">Giới tính</label>
-                    <select style="width: 25%"  name="sex" id="sex">
-                        <option value="no">Không</option>
-                        <option value="nam">Nam</option>
-                        <option value="nu">Nữ</option>
+                    <label class="unable" for="sex">Giới tính</label>
+                    <select class="unable" style="width: 25%"  name="sex" id="sex">
+                        <option @if($user[0]->Sex == "") selected @endif value="">Không</option>
+                        <option @if($user[0]->Sex == "1") selected @endif value="1">Nam</option>
+                        <option @if($user[0]->Sex == "0") selected @endif value="0">Nữ</option>
                     </select>
+                    <a href="" class="change-pass">Đổi mật khẩu?</a>
                 </div>
             </div>
-            <button class="upd-btn">Cập nhập</button>
-    </form>
+            <div class="edit-row">
+                <div onclick="clickEdit(this)" class="edit-btn">Chỉnh sửa</div>
+                <a href="" class="cancle">Hủy bỏ</a>
+                <button class="save">Lưu</button>
+            </div>    
+        </form>
 </section>
 @endsection
 
 @push("SCSS&JS")
 @vite(['resources/scss/member.scss'])
 <script src="{{url('js/insertAva.js')}}" type="text/javascript" async></script>
+<script src="{{url('js/clickEditAccount.js')}}" type="text/javascript" async></script>
 @endpush

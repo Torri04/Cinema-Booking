@@ -1,6 +1,6 @@
 function watchTrailer() {
     var frame = document.querySelector(".frame")
-    var overlay = document.querySelector(".overlay")
+    var overlay = document.querySelector("#ovl")
 
     frame.style.display = "block"
     frame.style.animationName = "frame-in"
@@ -8,7 +8,7 @@ function watchTrailer() {
     overlay.style.display = "block"
 }
 function closeClick() {
-    var overlay = document.querySelector(".overlay")
+    var overlay = document.querySelector("#ovl")
     var frame = document.querySelector(".frame")
 
     frame.style.animationName = "frame-out"
