@@ -6,7 +6,7 @@
         <a href={{route("userAccount")}} class="{{Request::is('user/account') ? 'isMember' : ''}} opt-info">THÔNG TIN TÀI KHOẢN</a>
         <a href={{route("userMember")}} class="{{Request::is('user/member') ? 'isMember' : ''}} opt-info">THẺ THÀNH VIÊN</a>
     </div>
-    <form method="POST" action="" class="mem-info" enctype="multipart/form-data">
+    <form method="POST" action="" class="acc-info" enctype="multipart/form-data">
         @csrf
         @method("POST")
             <input hidden id="userID" name="userID" type="text" value={{$user[0]->UserID}}>

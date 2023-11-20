@@ -33,7 +33,7 @@
         }
     }
 
-    .mem-info {
+    .acc-info {
         width: 85%;
         height: 80%;
         background: #787878;
@@ -180,6 +180,45 @@
                 }
             }
 
+        }
+    }
+
+    .mem-info {
+        width: 85%;
+        height: 80%;
+        background: #787878;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .table {
+            margin-top: 50px;
+            background: white;
+            width: 90%;
+            border: 2px solid var(--1st-color);
+            text-align: center;
+            vertical-align: middle;
+
+            .til {
+                font-weight: bolder;
+            }
+
+            td,
+            tr {
+                border: 2px solid var(--1st-color);
+
+            }
+        }
+
+        .noted {
+            color: white;
+            align-self: normal;
+            margin-left: 5%;
+
+            .money-required,
+            .member-type {
+                font-weight: bolder;
+            }
         }
     }
 }

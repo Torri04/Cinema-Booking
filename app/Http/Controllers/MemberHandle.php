@@ -70,6 +70,14 @@ class MemberHandle extends Controller
 
     public function memberUser()
     {
-        return view("client/member");
+        $userCk = Cookie::get('isUser');
+        $userCk = json_decode($userCk);
+
+        $user = DB::table('User')
+            ->where('UserID', $userCk->userID)
+            ->select('*')
+            ->get();
+
+        return view("client/member", compact("user"));
     }
 }

@@ -70,6 +70,14 @@ class AdminMemberHandle extends Controller
 
     public function memberAdmin()
     {
-        return view("admin/memberAdmin");
+        $userCk = Cookie::get('isAdmin');
+        $userCk = json_decode($userCk);
+
+        $user = DB::table('User')
+            ->where('UserID', $userCk->userID)
+            ->select('*')
+            ->get();
+
+        return view("admin/memberAdmin", compact("user"));
     }
 }
