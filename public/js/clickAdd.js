@@ -52,6 +52,12 @@ function clickEdit(e) {
         i.removeAttribute("disabled")
     }
 
+    const inps = document.querySelectorAll(".frame-s")
+    for (let i of inps) {
+        i.removeAttribute("readonly")
+        i.setAttribute("disabled", "")
+    }
+
     const clickAdd_1 = document.querySelector(".clickAdd-1")
     clickAdd_1.classList.remove("isShow")
     const clickAdd_2 = document.querySelector(".clickAdd-2")

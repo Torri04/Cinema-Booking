@@ -1,0 +1,244 @@
+.booking-ctn {
+    min-height: 465px;
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    height: calc(100vh - 100px);
+    background: var(--2st-color);
+
+    .left-side {
+        display: flex;
+        flex-direction: column;
+        width: calc(65% - 10px);
+        background: #252525;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        .frame {
+            width: 90%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .til {
+                color: white;
+                font-weight: bold;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .sheet {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 95%;
+            max-width: 750px;
+            gap: 5px;
+
+            .sheet-row {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                gap: 5px;
+
+                .ord-sheet {
+                    max-width: 34px;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    width: 5vw;
+                    aspect-ratio: 1 / 1;
+                    background: #253554;
+                    transition: 0.3s;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: linear-gradient(to bottom, var(--1st-color) 20%, #FF81A6);
+                        color: white;
+                    }
+                }
+
+                .ord-char {
+                    max-width: 34px;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--1st-color);
+                    width: 5%;
+                    aspect-ratio: 1 / 1;
+                    background: linear-gradient(to right, #252525 20%, #1A2232);
+                }
+            }
+
+            .end-row {
+                position: absolute;
+                margin-top: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                width: 37px;
+                left: 0%;
+
+                .row-ctn {
+                    width: 37px;
+                    display: flex;
+                    gap: 10px;
+                    flex-direction: column;
+
+
+                    img {
+                        width: 37px;
+                        height: 27px;
+                    }
+
+                    span {
+                        text-align: center;
+                        color: white;
+                        font-weight: bold;
+                    }
+                }
+            }
+
+        }
+
+
+    }
+
+    .right-side {
+        display: flex;
+        width: 35%;
+        background: #252525;
+
+        .info-payment {
+            width: 100%;
+            height: 90%;
+            background: white;
+            border-radius: 0 0 10px 10px;
+
+            .above {
+                min-height: 225px;
+                height: 45%;
+
+                input {
+                    border: none;
+                    pointer-events: none;
+                }
+
+                .mv-name {
+                    margin: 10px 0 10px 10px;
+                    font-size: 18px;
+                    color: var(--1st-color);
+                    font-weight: bold;
+                }
+
+                .cinema,
+                .time,
+                .room,
+                .sheet {
+                    margin-left: 10px;
+                    display: flex;
+                    gap: 20px;
+
+                    #your_seat {
+                        height: 35px;
+                        background: white;
+                        border: none;
+                        white-space: nowrap;
+                        overflow-x: auto;
+                        overflow-y: hidden;
+                    }
+
+                    .til {
+                        width: 70px;
+                    }
+                }
+
+                .price,
+                .total {
+                    margin-left: 10px;
+                    display: flex;
+                    gap: 0px;
+
+                    .til {
+                        width: 70px;
+                        margin-right: 20px;
+                    }
+                }
+
+                .empha {
+                    color: var(--1st-color);
+                }
+
+                hr {
+                    margin: 0;
+                    width: 90%;
+                    margin: 5px 5%;
+                    color: rgb(109, 158, 255, 0.5);
+
+                }
+            }
+
+            .center {
+                height: 10%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .bellow {
+                height: 45%;
+
+                .tel {
+                    color: #637394;
+                    border: 2px solid rgb(109, 158, 255, 0.1);
+                    border-radius: 5px;
+                    width: 90%;
+                    height: 40px;
+                    margin: 10px 5%;
+
+                    &::placeholder {
+                        text-indent: 5px;
+                        color: #637394;
+                    }
+
+                }
+
+                .pay-btn {
+                    color: white;
+                    font-weight: bold;
+                    background: linear-gradient(to bottom, var(--1st-color) 20%, #FF81A6);
+                    border: 0px;
+                    border-radius: 5px;
+                    width: 90%;
+                    height: 40px;
+                    margin-left: 5%;
+                    transition: 0.3s;
+
+                    &:hover {
+                        background: linear-gradient(to bottom, var(--2st-color) 20%, #828282);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.isSelect {
+    background: linear-gradient(to bottom, var(--1st-color) 20%, #FF81A6) !important;
+    color: white !important;
+}

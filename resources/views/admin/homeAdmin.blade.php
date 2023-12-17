@@ -111,12 +111,6 @@ use Carbon\Carbon;
         <div onclick="clickCancel()" class="cancel-btn">Hủy bỏ</div>
       </div>
     </form>
-    @php
-    $json = json_encode($shows);
-    echo "
-    <script>var data = $json;</script>";
-    @endphp
-    
 @endsection
 
 @section("footer")

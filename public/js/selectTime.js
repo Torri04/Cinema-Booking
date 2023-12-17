@@ -1,6 +1,13 @@
 $(document).ready(function () {
     var film;
     var date;
+    var data;
+
+    fetch("api/getfilm")
+        .then(res => res.json())
+        .then(film => {
+            data = film;
+        })
 
     $('.book').trigger("reset");
 

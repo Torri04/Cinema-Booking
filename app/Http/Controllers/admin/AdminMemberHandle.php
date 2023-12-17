@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Storage;
 
-class MemberHandle extends Controller
+class AdminMemberHandle extends Controller
 {
     public function __construct()
     {
@@ -15,7 +16,7 @@ class MemberHandle extends Controller
     //GET
     public function index()
     {
-        $userCk = Cookie::get('isUser');
+        $userCk = Cookie::get('isAdmin');
         $userCk = json_decode($userCk);
 
         $user = DB::table('User')
@@ -23,7 +24,7 @@ class MemberHandle extends Controller
             ->select('*')
             ->get();
 
-        return view("client/account", compact("user"));
+        return view("admin/accountAdmin", compact("user"));
     }
     public function accountEdit(Request $request)
     {
@@ -50,7 +51,7 @@ class MemberHandle extends Controller
             //Update the cookie
             $userStorage = ['userID' => $user[0]->UserID, 'user' => $user[0]->User, 'avatar' => $insertAvt_name];
             $array_json = json_encode($userStorage);
-            Cookie::queue(Cookie::make('isUser', $array_json, 15));
+            Cookie::queue(Cookie::make('isAdmin', $array_json, 15));
         }
 
         //Update the tables
@@ -65,12 +66,12 @@ class MemberHandle extends Controller
                 'Sex' => $request->sex,
             ]);
 
-        return redirect(route('userAccount'));
+        return redirect(route('adminAccount'));
     }
 
-    public function memberUser()
+    public function memberAdmin()
     {
-        $userCk = Cookie::get('isUser');
+        $userCk = Cookie::get('isAdmin');
         $userCk = json_decode($userCk);
 
         $user = DB::table('User')
@@ -78,6 +79,6 @@ class MemberHandle extends Controller
             ->select('*')
             ->get();
 
-        return view("client/member", compact("user"));
+        return view("admin/memberAdmin", compact("user"));
     }
 }

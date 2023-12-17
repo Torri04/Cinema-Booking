@@ -63,10 +63,12 @@ use Carbon\Carbon;
                 <div class="time-frames">
                     @forelse($shows_1 as $key => $show)
                     <div class="ctn-show">
-                        <input name="show_1_{{$key}}" disabled type="text" class="frame-s ipt" value="@php
+                        <input date="@php $dates = Carbon::createFromFormat('Y-m-d', $show->Date);echo $dates->format('d/m/Y');@endphp" key="{{$show->ShowID}}" name="show_1_{{$key}}" readonly type="text" class="frame-s ipt" value="@php
                         $date = Carbon::createFromFormat('H:i:s', $show->StartTime);
                         echo $date->format('H:i');
                         @endphp">
+                        <input type="text" hidden value={{route('booking',['ShowID'=>$show->ShowID])}}>
+                        <span class="show-dlt">-</span>
                     </div>
                     @empty
                     @endforelse
@@ -77,10 +79,12 @@ use Carbon\Carbon;
                 <div class="time-frames">
                     @forelse($shows_2 as $key => $show)
                     <div class="ctn-show">
-                        <input name="show_2_{{$key}}" disabled type="text" class="frame-s ipt" value="@php
+                        <input date="@php $dates = Carbon::createFromFormat('Y-m-d', $show->Date);echo $dates->format('d/m/Y');@endphp" key="{{$show->ShowID}}" name="show_2_{{$key}}" readonly type="text" class="frame-s ipt" value="@php
                         $date = Carbon::createFromFormat('H:i:s', $show->StartTime);
                         echo $date->format('H:i');
                         @endphp">
+                        <input type="text" hidden value={{route('booking',['ShowID'=>$show->ShowID])}}>
+                        <span class="show-dlt">-</span>
                     </div>
                     @empty
                     @endforelse
@@ -94,9 +98,30 @@ use Carbon\Carbon;
     <iframe width="560" height="315" src="{{$movie[0]->Link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <span onclick="closeClick()" class="spn" class="spn">&times;</span>
 </div>
+<div class="booking-contain" >
+    <div class="title">Bạn đang đặt vé xem phim</div>
+    <hr class="hr">
+    <div class="mv-name">{{$movie[0]->Name}}</div>
+    <hr class="hr">
+    <div class="table-info">
+        <span class="spn-info">Rạp phim</span>
+        <span class="spn-info">Ngày chiếu</span>
+        <span class="spn-info">Giờ chiếu</span>
+    </div>
+    <div class="mv-info">
+        <span class="spn-info">CINEMA4</span>
+        <span class="spn-info show-date">Ngày chiếu</span>
+        <span class="spn-info show-time">Giờ chiếu</span>
+    </div>
+    <div class="end-row">
+        <div onclick="clickCancel()" class="cancel">Hủy bỏ</div>
+        <a href="" class="enter">Xác nhận</a>
+    </div>
+  </div>
 @endsection
 
 @push("SCSS&JS")
 @vite(['resources/scss/info.scss'])
 <script src="{{url('js/watchTrailer.js')}}" type="text/javascript" async></script>
+<script src="{{url('js/clickBooking.js')}}" type="text/javascript" async></script>
 @endpush

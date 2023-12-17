@@ -1,25 +1,29 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
+
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use Ramsey\Uuid\Uuid;
 
 class AdminInfoAdd extends Controller
 {
     public function __construct()
-    {}
+    {
+    }
     public function index(Request $request)
     {
         $film = $request->Film;
-        return view("admin/infoAdminAdd",compact('film'));
+        return view("admin/infoAdminAdd", compact('film'));
     }
     //post film
     public function addFilm(Request $request)
     {
         $show = 0;
-        if($request->Film == "coming")
+        if ($request->Film == "coming")
             $show = 0;
         else
             $show = 1;
@@ -27,18 +31,19 @@ class AdminInfoAdd extends Controller
         $insertIMG = $request->file('insertIMG');
         $insertPoster = $request->file('insertPoster');
 
-        $insertIMG_name = "img_".uniqid().".".$insertIMG->extension();
-        $insertPoster_name = "img_".uniqid().".".$insertPoster->extension();
-        
-        Storage::putFileAs("public/img/movies", $insertIMG, $insertIMG_name); 
-        Storage::putFileAs("public/img/posters", $insertPoster, $insertPoster_name); 
+        $insertIMG_name = "img_" . uniqid() . "." . $insertIMG->extension();
+        $insertPoster_name = "img_" . uniqid() . "." . $insertPoster->extension();
+
+        Storage::putFileAs("public/img/movies", $insertIMG, $insertIMG_name);
+        Storage::putFileAs("public/img/posters", $insertPoster, $insertPoster_name);
 
         DB::table('Movie')->insert([
+            'MovieID' => Uuid::uuid4()->toString(),
             'Name' => $request->Name,
             'Genres' => $request->Genres,
-            'Duration' => Carbon::createFromFormat('H:i:s', str_replace("m","",str_replace('h ',':',$request->Dur)) .':00')->format('H:i:s'),
+            'Duration' => Carbon::createFromFormat('H:i:s', str_replace("m", "", str_replace('h ', ':', $request->Dur)) . ':00')->format('H:i:s'),
             'Language' => $request->Lan,
-            'ReleaseDate' => Carbon::createFromFormat('d-m-Y', str_replace('/','-',$request->Date))->format('Y-m-d'),
+            'ReleaseDate' => Carbon::createFromFormat('d-m-Y', str_replace('/', '-', $request->Date))->format('Y-m-d'),
             'Director' => $request->Direc,
             'Actors' => $request->Actor,
             'Content' => $request->Content,
@@ -48,7 +53,6 @@ class AdminInfoAdd extends Controller
             'IsOnShow' => $show,
             'IsReleased' => $show,
         ]);
-        return redirect(route("adminFilm",['Film' => $request->Film]));
-    }    
+        return redirect(route("adminFilm", ['Film' => $request->Film]));
+    }
 }
-

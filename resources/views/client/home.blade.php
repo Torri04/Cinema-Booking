@@ -97,11 +97,6 @@ use Carbon\Carbon;
     <section class="promo">
       <div class="title">CHƯƠNG TRÌNH ƯU ĐÃI</div>
     </section>
-    @php
-    $json = json_encode($shows);
-    echo "
-    <script>var data = $json;</script>";
-    @endphp
 @endsection
 
 

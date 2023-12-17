@@ -1,24 +1,36 @@
 <?php
 
+//Admin Controllers
+use App\Http\Controllers\admin\AdminBookingHandle;
+use App\Http\Controllers\admin\AdminComingFilmInfoEdit;
+use App\Http\Controllers\admin\AdminFilmHandle;
+use App\Http\Controllers\admin\AdminInfoAdd;
+use App\Http\Controllers\admin\AdminInfoEdit;
+use App\Http\Controllers\admin\AdminPromotionHandle;
+use App\Http\Controllers\admin\AdminHomeHandle;
+use App\Http\Controllers\admin\AdminMemberHandle;
+
+
+//User Controllers
+use App\Http\Controllers\user\MemberHandle;
+use App\Http\Controllers\user\ComingFilmInfoHandle;
+use App\Http\Controllers\user\HomeHandle;
+use App\Http\Controllers\user\FilmHandle;
+use App\Http\Controllers\user\PromotionHandle;
+use App\Http\Controllers\user\InfoHandle;
+use App\Http\Controllers\user\BookingHandle;
+
+//#
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SignInHandle;
 use App\Http\Controllers\SignOutHandle;
 use App\Http\Controllers\SignUpHandle;
-use App\Http\Controllers\HomeHandle;
-use App\Http\Controllers\FilmHandle;
-use App\Http\Controllers\PromotionHandle;
-use App\Http\Controllers\InfoHandle;
+
+//Middleware
 use App\Http\Middleware\CheckPermission;
 use App\Http\Middleware\CheckUser;
-use App\Http\Controllers\AdminHomeHandle;
-use App\Http\Controllers\AdminInfoAdd;
-use App\Http\Controllers\AdminInfoEdit;
-use App\Http\Controllers\AdminFilmHandle;
-use App\Http\Controllers\AdminPromotionHandle;
-use App\Http\Controllers\MemberHandle;
-use App\Http\Controllers\AdminMemberHandle;
-use App\Http\Controllers\AdminComingFilmInfoEdit;
-use App\Http\Controllers\ComingFilmInfoHandle;
+
+
 
 //Sign In Router
 Route::get('/signin', [SignInHandle::class, 'index'])->name('signin');
@@ -38,6 +50,9 @@ Route::prefix('/')->middleware(CheckUser::class)->group(function () {
     Route::get('/', [HomeHandle::class, 'index'])->name('home');
 
     Route::get('/film/{Film}', [FilmHandle::class, 'index'])->name('film');
+
+    Route::get('/booking/{ShowID}', [BookingHandle::class, 'index'])->name('booking');
+    Route::post('/booking/{ShowID}', [BookingHandle::class, 'paymentHandle']);
 
     Route::get('/promotion', [PromotionHandle::class, 'index'])->name('promotion');
 
@@ -68,6 +83,9 @@ Route::prefix('admin')->middleware(CheckPermission::class)->group(function () {
 
     Route::get('/infoAdd/{Film}', [AdminInfoAdd::class, 'index'])->name('adminInfoAdd');
     Route::post('/infoAdd/{Film}', [AdminInfoAdd::class, 'addFilm']);
+
+    Route::get('/booking/{ShowID}', [AdminBookingHandle::class, 'index'])->name('adminBooking');
+    Route::post('/booking/{ShowID}', [AdminBookingHandle::class, 'paymentHandle']);
 
     Route::get('/infoEdit/{Name}/{Day}', [AdminInfoEdit::class, 'index'])->name('adminInfoEdit');
     Route::post('/infoEdit/{Name}/{Day}', [AdminInfoEdit::class, 'infoEdit']);
