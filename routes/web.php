@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SignInHandle;
 use App\Http\Controllers\SignOutHandle;
 use App\Http\Controllers\SignUpHandle;
+use App\Http\Controllers\PaymentController;
 
 //Middleware
 use App\Http\Middleware\CheckPermission;
@@ -93,3 +94,6 @@ Route::prefix('admin')->middleware(CheckPermission::class)->group(function () {
     Route::get('/infoComingFilmEdit/{Name}', [AdminComingFilmInfoEdit::class, 'index'])->name('adminComingFilmInfoEdit');
     Route::post('/infoComingFilmEdit/{Name}', [AdminComingFilmInfoEdit::class, 'infoEdit']);
 });
+//Thanh toán
+Route::post('/vn_payment', [PaymentController::class, 'vnpayment']);
+Route::get('/return', [PaymentController::class, 'index']);

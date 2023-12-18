@@ -1,0 +1,73 @@
+body {
+    background-image: url(../img/signin.png);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+
+    .pay-note {
+        padding: 10px 25px;
+        width: 500px;
+        height: 325px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        background: #252525;
+
+        .title {
+            font-size: 22px;
+            align-self: left;
+            justify-self: left;
+            color: rgb(111, 168, 111);
+            text-indent: 15px;
+            margin-bottom: 10px;
+            font-weight: bolder;
+        }
+
+        .num-note {
+            color: white;
+            text-align: center;
+        }
+
+        .num {
+            margin-top: 10px;
+            color: var(--1st-color);
+            font-size: 50px;
+            font-weight: bolder;
+            text-align: center;
+            width: 300px;
+            height: 125px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+            border: 1px solid var(--1st-color);
+        }
+
+        .note {
+            margin-top: 10px;
+            font-size: 14px;
+            color: white;
+            font-style: italic;
+
+            span {
+                color: var(--1st-color);
+            }
+        }
+
+        .anc {
+            margin-top: 10px;
+            color: var(--1st-color);
+            text-align: right;
+            text-decoration: none;
+            transition: 0.3s;
+
+            &:hover {
+                color: white;
+            }
+        }
+
+
+    }
+}

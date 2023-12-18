@@ -3,9 +3,10 @@
 use Carbon\Carbon;
 @endphp
 @section("main-content")
-<form action="" method="POST" class="payment-ctn">
+<form action={{url("vn_payment")}} method="POST" class="payment-ctn">
     @csrf
     @method("POST")
+    <input type="text" hidden name="ShowID" value="{{$request["ShowID"]}}">
     <section class="left-side">
         <div class="info-payment">
             <img src={{asset("img/icons/user.svg")}}>
@@ -71,7 +72,7 @@ use Carbon\Carbon;
                 </div>
                 <div class="type-point">
                     <i>Nhập điểm</i>
-                    <input name="to-type"  class="type" type="text">
+                    <input name="to-type" class="type" type="text">
                 </div>
                 <div class="money-dec">
                     <i>Số tiền được giảm</i>
@@ -126,7 +127,7 @@ use Carbon\Carbon;
                 </div>
                 <div class="sheet">
                     <span class="til">Ghế ngồi</span>
-                    <textarea style="width: calc(97.5% - 100px); overflow-x: auto;" disabled id="your_seat" class="empha">{{$request->yourseat}}</textarea>
+                    <textarea  style="width: calc(97.5% - 100px); overflow-x: auto;" disabled id="your_seat" class="empha">{{$request->yourseat}}</textarea>
                     <input type="text" hidden name="seats" value="{{$request->yourseat}}">
                 </div>
                 <hr>
@@ -155,11 +156,11 @@ use Carbon\Carbon;
             </div>
             <div class="bellow-2">
                 <a class="a-btn" href="javascript:history.back()">Quay lại</a>
-                <button class="a-btn">Thanh toán</button>
+                <button name="redirect" class="a-btn">Thanh toán</button>
             </div>
         </div>
     </section>
-</>
+</form>
 @endsection
 
 @push("SCSS&JS")

@@ -3,9 +3,10 @@
 use Carbon\Carbon;
 @endphp
 @section("main-content")
-<form action="" method="POST" class="payment-ctn">
+<form action={{url("vn_payment")}} method="POST" class="payment-ctn">
     @csrf
     @method("POST")
+    <input type="text" hidden name="ShowID" value="{{$request["ShowID"]}}">
     <section class="left-side">
         <div class="info-payment">
             <img src={{asset("img/icons/user.svg")}}>
@@ -155,7 +156,7 @@ use Carbon\Carbon;
             </div>
             <div class="bellow-2">
                 <a class="a-btn" href="javascript:history.back()">Quay lại</a>
-                <button class="a-btn">Thanh toán</button>
+                <button name="redirect" class="a-btn">Thanh toán</button>
             </div>
         </div>
     </section>
