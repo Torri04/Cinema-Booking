@@ -10,6 +10,9 @@ else if(Cookie::has('isUser'))
     $user=Cookie::get('isUser');
     $user=json_decode($user);
 }
+
+$otherProm = DB::select("SELECT * FROM Promotion");
+
 @endphp
 @section("content")
 <section class="container-header">
@@ -25,7 +28,7 @@ else if(Cookie::has('isUser'))
             <nav class="switch">
                 <a class="{{(Request::is('/') || Request::is('admin')) ? 'isActive' : ''}} a-sw" href="{{Cookie::has('isAdmin')?route('adminHome'):route('home')}}">Trang chủ</a>
                 <a class="{{(Request::is('film/*') || Request::is('admin/film/*')) ? 'isActive' : ''}} a-sw" href="{{Cookie::has('isAdmin')?route('adminFilm',["Film" => "coming"]):route('film',["Film" => "coming"])}}">Phim</a>
-                <a class="{{(Request::is('promotion') || Request::is('admin/promotion')) ? 'isActive' : ''}} a-sw" href="{{Cookie::has('isAdmin')?route('adminPromotion'):route('promotion')}}">Ưu đãi - Sự kiện</a>
+                <a class="{{(Request::is('promotion/*') || Request::is('admin/promotion/*')) ? 'isActive' : ''}} a-sw" href="{{Cookie::has('isAdmin')?route('adminPromotion',['PromotionID' => $otherProm[0]->PromotionID]):route('promotion',['PromotionID' => $otherProm[0]->PromotionID])}}">Ưu đãi - Sự kiện</a>
             </nav>
             @if(Cookie::has('isAdmin'))
             <div class="userBox remain" >

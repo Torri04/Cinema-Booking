@@ -20,7 +20,11 @@ class AdminHomeHandle extends Controller
             ->orderBy('StartTime', 'ASC')
             ->get();
 
-        return view("admin/homeAdmin", compact("movies", "shows"));
+        $otherProm = DB::table("Promotion")
+            ->select('*')
+            ->get();
+
+        return view("admin/homeAdmin", compact("movies", "shows", "otherProm"));
     }
     public function deleteFilm(Request $request)
     {

@@ -21,6 +21,10 @@ class HomeHandle extends Controller
             ->orderBy('StartTime', 'ASC')
             ->get();
 
-        return view("client/home", compact("movies", "shows"));
+        $otherProm = DB::table("Promotion")
+            ->select('*')
+            ->get();
+
+        return view("client/home", compact("movies", "shows", "otherProm"));
     }
 }

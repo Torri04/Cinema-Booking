@@ -31,9 +31,7 @@ use Carbon\Carbon;
       </button>
     </div>
     </section>
-    <form action="" method="POST" class="book">
-      @csrf
-      @method("POST")
+    <div class="book">
          <div class="remain quickbook">QUICK BOOK</div>
          <nav class="booking">
          <select class="slc selectpicker film" name="film" aria-label="Default select example">
@@ -73,9 +71,9 @@ use Carbon\Carbon;
          </select>
          </nav>
           <div class="remain">
-            <input class="btn" type="button" name="booking" value="Đặt vé ngay">
+            <a href="" class="btn a-href">Đặt vé ngay</a>
           </div>
-    </form>
+    </div>
     <section class="movies">
       <div class="mov-container">
         @forelse($movies as $movie)
@@ -95,8 +93,23 @@ use Carbon\Carbon;
         @endforelse
     </section>
     <section class="promo">
-      <div class="title">CHƯƠNG TRÌNH ƯU ĐÃI</div>
+      <div class="title">CHƯƠNG TRÌNH ƯU ĐÃI - SỰ KIỆN</div>
     </section>
+    <section class="slides-show">
+      <div class="slides-s">
+        <img class="clickL" src="{{asset("img/icons/left.svg")}}">
+        <img class="clickR" src="{{asset("img/icons/right.svg")}}">
+        <div class="contain">
+          @forelse($otherProm as $prome)
+          <a href="{{route('promotion',['PromotionID' => $prome->PromotionID])}}" class="each">
+            <img src="{{asset("storage/img/proms/" . $prome->Background)}}">
+            <div class="title">{{$prome->Title}}</div>
+          </a>
+          @empty
+          @endforelse
+        </div>
+      </div>
+  </section>
 @endsection
 
 
@@ -107,4 +120,5 @@ use Carbon\Carbon;
 @push("SCSS&JS")
 @vite(['resources/scss/home.scss'])
 <script src="{{url('js/selectTime.js')}}" type="text/javascript" async></script>
+<script src="{{url('js/clickSlide.js')}}" type="text/javascript" async></script>
 @endpush

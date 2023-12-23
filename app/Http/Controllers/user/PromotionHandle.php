@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PromotionHandle extends Controller
 {
@@ -11,8 +12,18 @@ class PromotionHandle extends Controller
     {
     }
     //GET
-    public function index()
+    public function index(Request $request)
     {
-        return view("client/promotion");
+        $prom = DB::table("Promotion")
+            ->select('*')
+            ->where("PromotionID", $request->PromotionID)
+            ->get();
+
+        $otherProm = DB::table("Promotion")
+            ->select('*')
+            ->where("PromotionID", "<>", $request->PromotionID)
+            ->get();
+
+        return view("client/promotion", compact('prom', "otherProm"));
     }
 }

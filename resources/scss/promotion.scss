@@ -1,192 +1,170 @@
-.body {
-    width: 100%;
-    height: 700px;
-    background: black;
-    display: flex;
-
-    .btn {
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        border: none;
-        margin: 10px;
-    }
-
-    .slides {
-        margin: auto;
-        width: 90%;
-        height: 100%;
-
-        .img {
-            width: 100%;
-            height: 700px;
-        }
-
-    }
-}
-
-.book {
-    display: flex;
-    height: 100px;
-    background: var(--1st-color);
-
-    .remain {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 20%;
-
-        .btn {
-            color: white;
-            font-family: var(--text-font);
-            width: 150px;
-            border: 2px solid var(--2st-color);
-            background: var(--2st-color);
-            border-radius: 7px;
-            box-shadow: none;
-
-            &:hover {
-                background: var(--1st-color);
-                color: var(--2st-color);
-            }
-
-        }
-    }
-
-    .quickbook {
-        font-family: "Rockwell";
-        font-weight: 1000;
-        font-size: 20px;
-
-    }
-
-    .booking {
-        width: 60%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-
-        .slc {
-            border-radius: 7px;
-            text-align: center;
-            font-family: var(--text-font);
-            width: 150px;
-            height: 40px;
-            border: 2px solid var(--2st-color);
-            background: var(--1st-color);
-            outline: none;
-
-            .opt {
-                background: white;
-            }
-        }
-
-
-    }
-}
-
-.movies {
+.promotion {
     width: 100%;
     padding: 15px 0;
     background: black;
     display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    .mov-container {
-        margin: auto;
+    .frame {
+        position: relative;
+        border: 2px dashed var(--1st-color);
         width: 1050px;
         display: flex;
-        gap: 50px;
-        padding: 15px 0;
-        flex-wrap: wrap;
-    }
-
-    .mov-edit {
-        text-decoration: none;
-        width: 225px;
-        height: 325px;
-        display: flex;
         flex-direction: column;
-        opacity: 0.8;
-        border: 2px solid var(--1st-color);
-        border-radius: 5px;
+        align-items: center;
+        gap: 20px;
+        background: rgb(221, 220, 220);
 
-        .img {
-            overflow: hidden;
-            text-align: center;
-            margin: auto;
+        .hav-del {
+            position: absolute;
+            top: 20px;
+            right: 20px;
 
-            .image {
+            .delete {
+                color: white;
+                padding: 7px 15px;
+                background: var(--1st-color);
+                border-radius: 7px;
+                border: 2px solid var(--1st-color);
+                transition: 0.2s;
+                cursor: pointer;
 
                 &:hover {
-                    transform: scale(1.25);
-                    transition: 0.4s;
+                    background: var(--2st-color);
+
                 }
             }
         }
-    }
 
-    .mov {
-        position: relative;
-        width: 225px;
-        height: 450px;
-
-        a {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            color: white;
-            text-decoration: none;
-            width: 100%;
-            height: 100%;
-
-            .img {
-                width: 225px;
-                height: 325px;
-                overflow: hidden;
-
-                .image {
-                    width: 100%;
-                    height: 100%;
-
-                    &:hover {
-                        transform: scale(1.05);
-                        transition: 0.4s;
-                    }
-                }
-            }
-
-            .title {
-                font-size: 18px;
-                font-weight: bolder;
-            }
-        }
-
-        .film-dele {
+        .title {
+            text-align: center;
+            border: none;
+            margin-top: 40px;
             font-size: 20px;
-            top: -10px;
-            right: -10px;
+            font-weight: bold;
+            color: var(--1st-color);
+            height: 40px;
+            width: 500px;
+            background: linear-gradient(to bottom, #FAFF00 -20%, rgb(132, 222, 242));
+        }
+
+        .film-info {
+            display: flex;
+            margin-top: 10px;
+            width: 95%;
+            height: 400px;
+            color: var(--1st-color);
+            position: relative;
+
+            .imgs {
+                width: 100%;
+                height: 100%;
+            }
+
+            .rdl {
+                position: absolute;
+                z-index: 2;
+                top: calc(50% - 64px);
+                left: calc(50% - 80px);
+                width: 160px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+
+                .rdl-img {
+                    width: 25%;
+                    transition: 0.2s;
+                }
+            }
+        }
+
+        .rule {
+            align-self: flex-start;
+            margin-left: 5%;
+            font-weight: bold;
+        }
+
+        #rule_cont {
+            background: inherit;
+            width: 85%;
+            border: none;
+            height: 300px;
+            text-align: justify;
+        }
+
+        .edit-row {
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            background: var(--1st-color);
-            position: absolute;
-            cursor: pointer;
-            border: 1px solid var(--1st-color);
-            transition: 0.4s;
-            color: black;
+            gap: 20px;
 
-            &:hover {
-                background: var(--2st-color);
+            .edit-btn {
                 color: white;
+                padding: 7px 20px;
+                background: var(--1st-color);
+                border-radius: 7px;
+                border: 2px solid var(--1st-color);
+                transition: 0.2s;
+                cursor: pointer;
 
+                &:hover {
+                    background: var(--2st-color);
+                }
+            }
+
+            .cancle {
+                text-decoration: none;
+                padding: 7px 20px;
+                background: red;
+                color: white;
+                background: var(--2st-color);
+                border-radius: 7px;
+                border: 2px solid var(--1st-color);
+                transition: 0.2s;
+                display: none;
+
+                &:hover {
+                    background: var(--1st-color);
+
+                }
+            }
+
+            .save {
+                color: white;
+                padding: 7px 15px;
+                background: var(--1st-color);
+                border-radius: 7px;
+                border: 2px solid var(--1st-color);
+                transition: 0.2s;
+                cursor: pointer;
+                display: none;
+
+                &:hover {
+                    background: var(--2st-color);
+
+                }
             }
         }
 
+    }
+}
 
+.annouce {
+    padding: 20px 0 0 0;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+
+    .cont {
+        width: 1050px;
+        color: var(--1st-color);
+        font-weight: bold;
+        font-size: 20px;
     }
 }
 
@@ -277,24 +255,6 @@
             }
         }
 
-    }
-}
-
-
-.promo {
-    display: flex;
-    flex-direction: column;
-
-    .title {
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 50px;
-        background: #7209B7;
-        color: white;
-        font-size: 18px;
     }
 }
 

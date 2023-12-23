@@ -36,6 +36,8 @@ class AdminInfoEdit extends Controller
             ->join('Show', 'Movie.MovieID', '=', 'Show.MovieID')
             ->where('Type', '2D Phụ đề')
             ->where('Name', $name)
+            ->where('StartTime', ">=", Carbon::now()->toTimeString())
+            ->where('IsShowOn', 1)
             ->whereDay('Show.Date', $date->format("d"))
             ->whereMonth('Show.Date', $date->format("m"))
             ->select('*')
@@ -47,6 +49,8 @@ class AdminInfoEdit extends Controller
             ->join('Show', 'Movie.MovieID', '=', 'Show.MovieID')
             ->where('Type', '2D Lồng tiếng')
             ->where('Name', $name)
+            ->where('StartTime', ">=", Carbon::now()->toTimeString())
+            ->where('IsShowOn', 1)
             ->whereDay('Show.Date', $date->format("d"))
             ->whereMonth('Show.Date', $date->format("m"))
             ->select('*')
@@ -152,7 +156,9 @@ class AdminInfoEdit extends Controller
 
         if ($request->deletedShow) {
             foreach ($request->deletedShow as $show) {
-                DB::table('Show')->where('ShowID', '=', $show)->delete();
+                DB::table('Show')
+                    ->where('ShowID', '=', $show)
+                    ->update(['IsShowOn' => 0]);
             }
         }
 

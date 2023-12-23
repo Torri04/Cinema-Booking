@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\AdminFilmHandle;
 use App\Http\Controllers\admin\AdminInfoAdd;
 use App\Http\Controllers\admin\AdminInfoEdit;
 use App\Http\Controllers\admin\AdminPromotionHandle;
+use App\Http\Controllers\admin\AdminPromotionAdd;
 use App\Http\Controllers\admin\AdminHomeHandle;
 use App\Http\Controllers\admin\AdminMemberHandle;
 
@@ -55,7 +56,7 @@ Route::prefix('/')->middleware(CheckUser::class)->group(function () {
     Route::get('/booking/{ShowID}', [BookingHandle::class, 'index'])->name('booking');
     Route::post('/booking/{ShowID}', [BookingHandle::class, 'paymentHandle']);
 
-    Route::get('/promotion', [PromotionHandle::class, 'index'])->name('promotion');
+    Route::get('/promotion/{PromotionID}', [PromotionHandle::class, 'index'])->name('promotion');
 
     Route::get('/user/account', [MemberHandle::class, 'index'])->name('userAccount');
     Route::post('/user/account', [MemberHandle::class, 'accountEdit']);
@@ -75,7 +76,12 @@ Route::prefix('admin')->middleware(CheckPermission::class)->group(function () {
     Route::get('/film/{Film}', [AdminFilmHandle::class, 'index'])->name('adminFilm');
     Route::delete('/film/{Film}', [AdminFilmHandle::class, 'deleteFilm']);
 
-    Route::get('/promotion', [AdminPromotionHandle::class, 'index'])->name('adminPromotion');
+    Route::get('/promotion/promAdd', [AdminPromotionAdd::class, 'index'])->name('addPromotion');
+    Route::post('/promotion/promAdd', [AdminPromotionAdd::class, 'addProm']);
+
+    Route::get('/promotion/{PromotionID}', [AdminPromotionHandle::class, 'index'])->name('adminPromotion');
+    Route::post('/promotion/{PromotionID}', [AdminPromotionHandle::class, 'editProm']);
+    Route::delete('/promotion/{PromotionID}', [AdminPromotionHandle::class, 'deleProm']);
 
     Route::get('/user/account', [AdminMemberHandle::class, 'index'])->name('adminAccount');
     Route::post('/user/account', [AdminMemberHandle::class, 'accountEdit']);

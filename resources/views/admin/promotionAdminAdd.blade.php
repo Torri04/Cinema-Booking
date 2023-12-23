@@ -1,20 +1,27 @@
 @extends('layouts.navbar')
 
 @section("main-content")
-<section  class="promotion">
-  <input type="text" name="promID" hidden value="{{$prom[0]->PromotionID}}">
+<form action="" method="POST" enctype="multipart/form-data" class="promotion">
+    @csrf
+    @method("POST")
   <div class="frame">
-    <input type="text" id="title" name="title" class='title unable' value="{{$prom[0]->Title}}">
-    <label for="insertIMG" style="background: var(--2st-color); cursor: pointer" class="film-info img ins unable">
-      <img class="imgs" src="{{asset("storage/img/proms/" . $prom[0]->Background)}}">
+    <input type="text" id="title" name="title" class='title'>
+    <label for="insertIMG" style="background: var(--2st-color); cursor: pointer" class="film-info img ins">
+      <img class="imgs">
       <input id="insertIMG" class="ins-ipt" name="insertIMG" type="file" accept="image/*" hidden>
+      <div class="rdl">
+        <img class="rdl-img" src="{{asset('img/cloud.png')}}">
+        <div >Kéo và thả ảnh hoặc</div>
+        <div >Bấm vào để thêm ảnh</div>
+    </div>
   </label>    
   <div class="rule">THỂ LỆ CHƯƠNG TRÌNH</div>
-    <textarea oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' id="rule_cont" class="txtare" disabled name="rule_cont">{{$prom[0]->Content}}</textarea>
+    <textarea oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' id="rule_cont" class="txtare" name="rule_cont"></textarea>
     <div class="edit-row">
-    </div>
+      <button class="edit-btn">Thêm</button>
   </div>
-</section>
+  </div>
+</form>
 <div class="annouce">
   <div class="cont">TIN TỨC KHÁC</div>
 </div>
@@ -24,7 +31,7 @@
       <img class="clickR" src="{{asset("img/icons/right.svg")}}">
       <div class="contain">
         @forelse($otherProm as $prome)
-        <a href="{{route('promotion',['PromotionID' => $prome->PromotionID])}}" class="each">
+        <a href="{{route('adminPromotion',['PromotionID' => $prome->PromotionID])}}" class="each">
           <img src="{{asset("storage/img/proms/" . $prome->Background)}}">
           <div class="title">{{$prome->Title}}</div>
         </a>
@@ -41,5 +48,6 @@
 
 @push("SCSS&JS")
 @vite(['resources/scss/promotion.scss'])
+<script src="{{url('js/insertIMG.js')}}" type="text/javascript" async></script>
 <script src="{{url('js/clickSlide.js')}}" type="text/javascript" async></script>
 @endpush

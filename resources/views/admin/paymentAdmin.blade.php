@@ -89,8 +89,8 @@ use Carbon\Carbon;
         <div class="pay-name">Chọn phương thức</div>
         <div class="select-pay-method">
             <div class="mth">
-                <input class="ipt-pay" type="checkbox" name="momo">
-                <span>Momo</span>
+                <input class="ipt-pay" type="checkbox" name="vnpay">
+                <span>VNPay</span>
             </div>
             <div class="mth">
                 <input class="ipt-pay" type="checkbox" name="zalopay">
