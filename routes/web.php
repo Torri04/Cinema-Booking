@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\AdminPromotionHandle;
 use App\Http\Controllers\admin\AdminPromotionAdd;
 use App\Http\Controllers\admin\AdminHomeHandle;
 use App\Http\Controllers\admin\AdminMemberHandle;
+use App\Http\Controllers\admin\AdminStatistics;
 
 
 //User Controllers
@@ -99,6 +100,11 @@ Route::prefix('admin')->middleware(CheckPermission::class)->group(function () {
 
     Route::get('/infoComingFilmEdit/{Name}', [AdminComingFilmInfoEdit::class, 'index'])->name('adminComingFilmInfoEdit');
     Route::post('/infoComingFilmEdit/{Name}', [AdminComingFilmInfoEdit::class, 'infoEdit']);
+
+    Route::get('/statistics/movie', [AdminStatistics::class, 'movieSta'])->name('adminMovieSta');
+    Route::get('/statistics/show', [AdminStatistics::class, 'showSta'])->name('adminShowSta');
+    Route::get('/statistics/user', [AdminStatistics::class, 'userSta'])->name('adminUserSta');
+    Route::get('/statistics/reservation', [AdminStatistics::class, 'reserSta'])->name('adminReserSta');
 });
 //Thanh toán
 Route::post('/vn_payment', [PaymentController::class, 'vnpayment']);

@@ -23,12 +23,15 @@ $otherProm = DB::select("SELECT * FROM Promotion");
         </div>
         <div class="nav-bar">
             <div class="remain deco">
-                <img src="{{asset('img/icons/deco.svg')}}" alt="">
+                <img style="width:200px; height: 100px;" src="{{asset('img/icons/logo.svg')}}" alt="">
             </div>
             <nav class="switch">
                 <a class="{{(Request::is('/') || Request::is('admin')) ? 'isActive' : ''}} a-sw" href="{{Cookie::has('isAdmin')?route('adminHome'):route('home')}}">Trang chủ</a>
                 <a class="{{(Request::is('film/*') || Request::is('admin/film/*')) ? 'isActive' : ''}} a-sw" href="{{Cookie::has('isAdmin')?route('adminFilm',["Film" => "coming"]):route('film',["Film" => "coming"])}}">Phim</a>
                 <a class="{{(Request::is('promotion/*') || Request::is('admin/promotion/*')) ? 'isActive' : ''}} a-sw" href="{{Cookie::has('isAdmin')?route('adminPromotion',['PromotionID' => $otherProm[0]->PromotionID]):route('promotion',['PromotionID' => $otherProm[0]->PromotionID])}}">Ưu đãi - Sự kiện</a>
+                @if(Cookie::has('isAdmin'))
+                <a class="{{(Request::is('statistics/*') || Request::is('admin/statistics/*')) ? 'isActive' : ''}} a-sw" href="{{route('adminMovieSta')}}">Thống kê</a>
+                @endif
             </nav>
             @if(Cookie::has('isAdmin'))
             <div class="userBox remain" >
