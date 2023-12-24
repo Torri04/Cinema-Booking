@@ -1,0 +1,1 @@
+<h1>Mật khẩu mới của bạn là: {{$newPass}}</h1>

@@ -9,7 +9,7 @@ body {
     .form {
         padding: 10px 25px;
         width: 500px;
-        height: 325px;
+        height: 300px;
         border-radius: 20px;
         display: flex;
         flex-direction: column;
@@ -55,30 +55,7 @@ body {
             }
         }
 
-        .sure {
-            display: flex;
-            margin: 15px auto 0;
-            width: 425px;
-            justify-content: space-between;
 
-            .remem {
-                display: flex;
-                gap: 5px;
-
-                .spn {
-                    color: white;
-                    font-size: 10px;
-                }
-            }
-
-            .forget {
-                text-decoration: none;
-                font-style: italic;
-                color: white;
-                font-size: 10px;
-
-            }
-        }
 
         .btn {
             width: 230px;

@@ -25,14 +25,19 @@ use App\Http\Controllers\user\BookingHandle;
 //#
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SignInHandle;
+use App\Http\Controllers\ForgetHandle;
 use App\Http\Controllers\SignOutHandle;
 use App\Http\Controllers\SignUpHandle;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\MailController;
 
 //Middleware
 use App\Http\Middleware\CheckPermission;
 use App\Http\Middleware\CheckUser;
 
+
+//Forget Router
+Route::get('/forget', [ForgetHandle::class, 'index'])->name('forget');
 
 
 //Sign In Router
@@ -109,3 +114,6 @@ Route::prefix('admin')->middleware(CheckPermission::class)->group(function () {
 //Thanh toán
 Route::post('/vn_payment', [PaymentController::class, 'vnpayment']);
 Route::get('/return', [PaymentController::class, 'index']);
+
+//Gửi mail
+Route::post('/mail', [MailController::class, 'index']);

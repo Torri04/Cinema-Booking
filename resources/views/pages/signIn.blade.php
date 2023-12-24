@@ -19,7 +19,7 @@
                <input type="checkbox" name="check">
                <span class="spn">Ghi nhớ mật khẩu
             </div>
-               <div class="forget">Quên mật khẩu?</div>
+               <a href="{{route("forget")}}" class="forget">Quên mật khẩu?</a>
             </div>
 
             <button class="btn">Đăng nhập</button>
