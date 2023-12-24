@@ -49,7 +49,7 @@
                         <option @if($user[0]->Sex == "1") selected @endif value="1">Nam</option>
                         <option @if($user[0]->Sex == "0") selected @endif value="0">Nữ</option>
                     </select>
-                    <a href="" class="change-pass">Đổi mật khẩu?</a>
+                    <a href="{{route("changePassAdmin")}}" class="change-pass">Đổi mật khẩu?</a>
                 </div>
             </div>
             <div class="edit-row">

@@ -23,7 +23,7 @@ $otherProm = DB::select("SELECT * FROM Promotion");
         </div>
         <div class="nav-bar">
             <div class="remain deco">
-                <img style="width:200px; height: 100px;" src="{{asset('img/icons/logo.svg')}}" alt="">
+                <img style="width:150px; height: 50px;" src="{{asset('img/icons/logo.png')}}" alt="">
             </div>
             <nav class="switch">
                 <a class="{{(Request::is('/') || Request::is('admin')) ? 'isActive' : ''}} a-sw" href="{{Cookie::has('isAdmin')?route('adminHome'):route('home')}}">Trang chủ</a>
