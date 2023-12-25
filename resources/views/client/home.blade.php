@@ -12,13 +12,13 @@ use Carbon\Carbon;
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="{{asset("storage/img/movies/".$movies[0]->Background)}}" class="d-block img" alt="...">
+          <img src="{{asset("storage/img/movies/".$movies[5]->Background)}}" class="d-block img" alt="...">
         </div>
         <div class="carousel-item">
         <img src="{{asset("storage/img/movies/".$movies[1]->Background)}}" class="d-block img" alt="...">
         </div>
         <div class="carousel-item">
-        <img src="{{asset("storage/img/movies/".$movies[2]->Background)}}" class="d-block img" alt="...">
+        <img src="{{asset("storage/img/movies/".$movies[4]->Background)}}" class="d-block img" alt="...">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
