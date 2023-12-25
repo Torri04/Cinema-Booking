@@ -36,13 +36,13 @@ class SignInHandle extends Controller
                 $userStorage = ['userID' => $user[0]->UserID, 'user' => $user[0]->User, 'avatar' => $user[0]->Avatar, 'phone' => $user[0]->Phone];
                 $array_json = json_encode($userStorage);
 
-                Cookie::queue(Cookie::make('isAdmin', $array_json, 15));
+                Cookie::queue(Cookie::make('isAdmin', $array_json, 30));
                 return redirect(route("adminHome"));
             } else {
                 $userStorage = ['userID' => $user[0]->UserID, 'user' => $user[0]->User, 'avatar' => $user[0]->Avatar, 'phone' => $user[0]->Phone];
                 $array_json = json_encode($userStorage);
 
-                Cookie::queue(Cookie::make('isUser', $array_json, 15));
+                Cookie::queue(Cookie::make('isUser', $array_json, 30));
                 return redirect(route("home"));
             }
         } else {
