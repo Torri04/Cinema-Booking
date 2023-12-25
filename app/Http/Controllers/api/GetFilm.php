@@ -13,10 +13,21 @@ class GetFilm extends Controller
     {
         $shows = DB::table("Show")
             ->select('*')
-            ->where('StartTime', ">=", Carbon::now()->toTimeString())
             ->where('IsShowOn', 1)
             ->orderBy('StartTime', 'ASC')
             ->get();
-        return json_encode($shows);
+
+        $shownew = [];
+
+        foreach ($shows as $show) {
+            if ((new Carbon($show->Date))->day === Carbon::now()->day) {
+                if (new Carbon($show->StartTime) >= Carbon::now()) {
+                    $shownew[] = $show;
+                }
+            } else {
+                $shownew[] = $show;
+            }
+        }
+        return json_encode($shownew);
     }
 }

@@ -11,7 +11,7 @@
     <div class="sta-info">
         <div class="info-row">
             <div class="ctn-info">
-                <label for="check">Mã vẽ</label>
+                <label for="check">Mã vé</label>
                 <input style="width: 100%; height: 25px;" type="text" name="check" id="check">         
             </div>
             <div class="ctn-info">

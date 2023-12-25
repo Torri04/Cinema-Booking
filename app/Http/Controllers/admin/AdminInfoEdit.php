@@ -31,31 +31,57 @@ class AdminInfoEdit extends Controller
 
         $movie = DB::select("SELECT * FROM Movie WHERE Name = ?", [$name]);
 
-        //2D Phụ đề
-        $shows_1 = DB::table('Movie')
-            ->join('Show', 'Movie.MovieID', '=', 'Show.MovieID')
-            ->where('Type', '2D Phụ đề')
-            ->where('Name', $name)
-            ->where('StartTime', ">=", Carbon::now()->toTimeString())
-            ->where('IsShowOn', 1)
-            ->whereDay('Show.Date', $date->format("d"))
-            ->whereMonth('Show.Date', $date->format("m"))
-            ->select('*')
-            ->orderBy('StartTime', 'ASC')
-            ->get();
+        if ($date->day === Carbon::now()->day) {
+            //2D Phụ đề
+            $shows_1 = DB::table('Movie')
+                ->join('Show', 'Movie.MovieID', '=', 'Show.MovieID')
+                ->where('Type', '2D Phụ đề')
+                ->where('Name', $name)
+                ->where('StartTime', ">=", Carbon::now()->toTimeString())
+                ->where('IsShowOn', 1)
+                ->whereDay('Show.Date', $date->format("d"))
+                ->whereMonth('Show.Date', $date->format("m"))
+                ->select('*')
+                ->orderBy('StartTime', 'ASC')
+                ->get();
 
-        //2D Lồng tiếng
-        $shows_2 = DB::table('Movie')
-            ->join('Show', 'Movie.MovieID', '=', 'Show.MovieID')
-            ->where('Type', '2D Lồng tiếng')
-            ->where('Name', $name)
-            ->where('StartTime', ">=", Carbon::now()->toTimeString())
-            ->where('IsShowOn', 1)
-            ->whereDay('Show.Date', $date->format("d"))
-            ->whereMonth('Show.Date', $date->format("m"))
-            ->select('*')
-            ->orderBy('StartTime', 'ASC')
-            ->get();
+            //2D Lồng tiếng
+            $shows_2 = DB::table('Movie')
+                ->join('Show', 'Movie.MovieID', '=', 'Show.MovieID')
+                ->where('Type', '2D Lồng tiếng')
+                ->where('Name', $name)
+                ->where('StartTime', ">=", Carbon::now()->toTimeString())
+                ->where('IsShowOn', 1)
+                ->whereDay('Show.Date', $date->format("d"))
+                ->whereMonth('Show.Date', $date->format("m"))
+                ->select('*')
+                ->orderBy('StartTime', 'ASC')
+                ->get();
+        } else {
+            //2D Phụ đề
+            $shows_1 = DB::table('Movie')
+                ->join('Show', 'Movie.MovieID', '=', 'Show.MovieID')
+                ->where('Type', '2D Phụ đề')
+                ->where('Name', $name)
+                ->where('IsShowOn', 1)
+                ->whereDay('Show.Date', $date->format("d"))
+                ->whereMonth('Show.Date', $date->format("m"))
+                ->select('*')
+                ->orderBy('StartTime', 'ASC')
+                ->get();
+
+            //2D Lồng tiếng
+            $shows_2 = DB::table('Movie')
+                ->join('Show', 'Movie.MovieID', '=', 'Show.MovieID')
+                ->where('Type', '2D Lồng tiếng')
+                ->where('Name', $name)
+                ->where('IsShowOn', 1)
+                ->whereDay('Show.Date', $date->format("d"))
+                ->whereMonth('Show.Date', $date->format("m"))
+                ->select('*')
+                ->orderBy('StartTime', 'ASC')
+                ->get();
+        }
 
         return view("admin/infoAdminEdit", compact('movie', 'shows_1', 'shows_2'));
     }
