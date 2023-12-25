@@ -32,3 +32,5 @@ Route::get('/getmovie', [GetStatistics::class, 'getMovie']);
 Route::get('/getshow', [GetStatistics::class, 'getShow']);
 Route::get('/getuser', [GetStatistics::class, 'getUser']);
 Route::get('/getreser', [GetStatistics::class, 'getReser']);
+
+Route::get('/gethistory/{UserID}', [GetStatistics::class, 'getHistory']);

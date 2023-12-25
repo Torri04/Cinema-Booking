@@ -5,6 +5,7 @@
     <div class="nav-info">
         <a href={{route("userAccount")}} class="{{Request::is('user/account') ? 'isMember' : ''}} opt-info">THÔNG TIN TÀI KHOẢN</a>
         <a href={{route("userMember")}} class="{{Request::is('user/member') ? 'isMember' : ''}} opt-info">THẺ THÀNH VIÊN</a>
+        <a href={{route("userHistory")}} class="{{Request::is('user/history') ? 'isMember' : ''}} opt-info">LỊCH SỬ ĐẶT VÉ</a>
     </div>
     <div class="mem-info">
         <table class="table">

@@ -81,4 +81,8 @@ class MemberHandle extends Controller
 
         return view("client/member", compact("user"));
     }
+    public function historyHandle()
+    {
+        return view("client/history");
+    }
 }

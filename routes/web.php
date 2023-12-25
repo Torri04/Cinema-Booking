@@ -66,6 +66,8 @@ Route::prefix('/')->middleware(CheckUser::class)->group(function () {
     Route::get('/user/account', [MemberHandle::class, 'index'])->name('userAccount');
     Route::post('/user/account', [MemberHandle::class, 'accountEdit']);
 
+    Route::get('/user/history', [MemberHandle::class, 'historyHandle'])->name('userHistory');
+
     //ChangePass Router
     Route::get('/user/account/changePass', [ChangePassHandle::class, 'index'])->name('changePass');
     Route::post('/user/account/changePass', [ChangePassHandle::class, 'changePass']);
@@ -94,6 +96,8 @@ Route::prefix('admin')->middleware(CheckPermission::class)->group(function () {
 
     Route::get('/user/account', [AdminMemberHandle::class, 'index'])->name('adminAccount');
     Route::post('/user/account', [AdminMemberHandle::class, 'accountEdit']);
+
+    Route::get('/user/history', [AdminMemberHandle::class, 'historyHandle'])->name('adminHistory');
 
     //ChangePass Router
     Route::get('/user/account/changePass', [ChangePassHandle::class, 'index'])->name('changePassAdmin');

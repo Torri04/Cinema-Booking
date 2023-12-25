@@ -41,4 +41,16 @@ class GetStatistics extends Controller
 
         return json_encode($reser);
     }
+    public function getHistory(Request $request)
+    {
+        $his = DB::table('Reservation')
+            ->join("Show", "Show.ShowID", '=', "Reservation.ShowID")
+            ->join("Movie", "Show.MovieID", '=', "Movie.MovieID")
+            ->where("Reservation.UserID", $request->UserID)
+            ->select('*')
+            ->orderBy('Date', 'ASC')
+            ->get();
+
+        return json_encode($his);
+    }
 }

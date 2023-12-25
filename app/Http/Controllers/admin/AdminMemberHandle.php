@@ -81,4 +81,9 @@ class AdminMemberHandle extends Controller
 
         return view("admin/memberAdmin", compact("user"));
     }
+
+    public function historyHandle()
+    {
+        return view("admin/historyAdmin");
+    }
 }

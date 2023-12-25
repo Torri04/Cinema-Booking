@@ -5,6 +5,7 @@
     <div class="nav-info">
         <a href={{route("userAccount")}} class="{{Request::is('user/account') ? 'isMember' : ''}} opt-info">THÔNG TIN TÀI KHOẢN</a>
         <a href={{route("userMember")}} class="{{Request::is('user/member') ? 'isMember' : ''}} opt-info">THẺ THÀNH VIÊN</a>
+        <a href={{route("userHistory")}} class="{{Request::is('user/history') ? 'isMember' : ''}} opt-info">LỊCH SỬ ĐẶT VÉ</a>
     </div>
     <form method="POST" action="" class="acc-info" enctype="multipart/form-data">
         @csrf
@@ -20,7 +21,7 @@
             <div class="info-row">
                 <div class="ctn-info unable">
                     <label for="name">Họ tên</label>
-                    <input type="text" name="name" id="name" value={{$user[0]->Name}}>
+                    <input type="text" name="name" id="name" value="{{$user[0]->Name}}">
                 </div>
                 <div class="ctn-info unable">
                     <label for="email">Email</label>
