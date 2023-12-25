@@ -109,7 +109,7 @@ use Carbon\Carbon;
         <span class="spn-info">Giờ chiếu</span>
     </div>
     <div class="mv-info">
-        <span class="spn-info">CINEMA4</span>
+        <span class="spn-info">KFCinema</span>
         <span class="spn-info show-date">Ngày chiếu</span>
         <span class="spn-info show-time">Giờ chiếu</span>
     </div>

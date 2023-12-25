@@ -19,7 +19,7 @@ $otherProm = DB::select("SELECT * FROM Promotion");
     <header class="header">
         <div class="promo">
             <div class="new">New</div>
-            <div>Đăng ký thành viên để hưởng ưu đãi đồng giá 59k cho mọi xuất chiếu.<a class="anchor" href="#"> Xem thêm</a></div>
+            <div>Đăng ký thành viên để hưởng ưu đãi đồng giá 55k cho mọi xuất chiếu.<a class="anchor" href="#"> Xem thêm</a></div>
         </div>
         <div class="nav-bar">
             <div class="remain deco">

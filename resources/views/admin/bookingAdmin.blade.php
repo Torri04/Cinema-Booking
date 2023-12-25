@@ -94,7 +94,7 @@ use Carbon\Carbon;
                 <div class="mv-name">{{$movieName[0]->Name}}</div>
                 <div class="cinema">
                     <span class="til">Rạp phim</span>
-                    <div style=" width: calc(97.5% - 100px);height: 50px"><span class="empha">Cinema4</span>, Đường Hàn Thuyên, khu phố 6 P, Thủ Đức, Thành phố Hồ Chí Minh</div>
+                    <div style=" width: calc(97.5% - 100px);height: 50px"><span class="empha">KFCinema</span>, Đường Hàn Thuyên, khu phố 6 P, Thủ Đức, Thành phố Hồ Chí Minh</div>
                 </div>
                 <div class="time">
                     <span class="til">Thời gian</span>
