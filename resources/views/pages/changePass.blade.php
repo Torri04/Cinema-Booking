@@ -3,7 +3,7 @@
     <form action="" method="POST" class="form">
         @csrf
         @method("POST")
-        <div class="title">Đổi Mật Khẩu</div>
+        <div class="title">Đổi mật khẩu</div>
         <div class="ipt-container">
             <div class="ipt">                
                 <input value="{{session("user")}}" id="oldpass" onfocus="MyFocus1(this)" onfocusout="MyFocus2(this)" class="input"  type="password"  name="oldpass">

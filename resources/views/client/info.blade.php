@@ -41,7 +41,7 @@ use Carbon\Carbon;
         <img class="poster" src="{{asset("storage/img/posters/".$movie[0]->Poster)}}">
         <div onclick="watchTrailer()" class="trailer">
             <img class="cc" src="{{asset('img/icons/play.svg')}}">
-            <span>WATCH TRAILER</span>
+            <span>XEM TRAILER</span>
         </div>
         <div class="schedule">
             <div class="dates">

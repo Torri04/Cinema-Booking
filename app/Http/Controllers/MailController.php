@@ -28,6 +28,6 @@ class MailController extends Controller
             $email->to($emailAdd);
         });
 
-        return redirect(route("forget"));
+        return redirect(route("signin"));
     }
 }

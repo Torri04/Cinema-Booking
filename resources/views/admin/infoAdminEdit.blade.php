@@ -54,7 +54,7 @@ use Carbon\Carbon;
         <input id="trailer" name="trailer" type ="text" class="trail" value="{{$movie[0]->Link}}">
         <div onclick="watchTrailer()" class="trailer">
             <img class="cc" src="{{asset('img/icons/play.svg')}}">
-            <span>WATCH TRAILER</span>
+            <span>XEM TRAILER</span>
         </div>
         <div class="schedule">
             <div class="dates">

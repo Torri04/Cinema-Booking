@@ -16,7 +16,7 @@ use Carbon\Carbon;
             <div class="part1">
                 <div class="ipt">
                     <span>Họ và tên:</span>
-                    <input type="text" id="name" name="name" value={{isset($user)?$user[0]->Name:""}}>
+                    <input type="text" id="name" name="name" value="{{isset($user)?$user[0]->Name:""}}">
                 </div>
                 <div class="ipt">
                     <span>Số điện thoại:</span>

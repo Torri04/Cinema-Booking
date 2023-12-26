@@ -3,7 +3,7 @@
     <form class="form" action="" method="POST">
         @csrf
         @method("POST")
-            <div class="title">Đăng Ký</div>
+            <div class="title">Đăng ký</div>
             <div class="ipt-container">
                 <div class="ipt">                
                     <input id="user" onfocus="MyFocus1(this)" onfocusout="MyFocus2(this)" class="input" type="text"  name="user">
@@ -32,7 +32,7 @@
             </div>
             <div class="sure" >
                 <input class="check" type="checkbox" name="check">
-                <span class="spn">Tôi cam kết tuân theo <i class="ita">Chính sách bảo mật </i> và <i class="ita"> Điều khoản sử dụng </i> của...</span>    
+                <span class="spn">Tôi cam kết tuân theo <i class="ita">Chính sách bảo mật </i> và <i class="ita"> Điều khoản sử dụng </i> của KFCinema</span>    
             </div>
             <button class="btn">Đăng ký</button>
             <div class="bottom">

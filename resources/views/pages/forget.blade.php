@@ -3,7 +3,7 @@
     <form action={{url("mail")}} method="POST" class="form">
         @csrf
         @method("POST")
-        <div class="title">Quên Mật Khẩu</div>
+        <div class="title">Quên mật khẩu</div>
         <div class="ipt-container">
             <div class="ipt">                
                 <input value="{{session("user")}}" id="user" onfocus="MyFocus1(this)" onfocusout="MyFocus2(this)" class="input"  type="text"  name="user">

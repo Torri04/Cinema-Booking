@@ -3,7 +3,7 @@
     <form class="form" action="signin" method="POST">
         @csrf
         @method("POST")
-        <div class="title">Đăng Nhập</div>
+        <div class="title">Đăng nhập</div>
         <div class="ipt-container">
             <div class="ipt">                
                 <input value="{{session("user")}}" id="user" onfocus="MyFocus1(this)" onfocusout="MyFocus2(this)" class="input"  type="text"  name="user">
